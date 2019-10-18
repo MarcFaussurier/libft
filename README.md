@@ -1,4 +1,4 @@
-# C-CPP-starter
+# libft@42
 
 A basic repo I made so that I will spend less time in creating my next projects.
 
