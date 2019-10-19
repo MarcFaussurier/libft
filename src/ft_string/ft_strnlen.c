@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_inttypes.h                                    .::    .:/ .      .::   */
+/*   ft_string.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/15 17:09:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/15 17:41:01 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/15 17:11:19 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/15 17:11:52 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_INTTYPES_H
-# define FT_INTTYPES_H
+#include <ft.h>
+#include <ft_string.h>
 
-typedef unsigned int	t_size_t;
-#endif
+size_t		ft_strnlen(const char *s, size_t maxlen)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && i < maxlen)
+		i += 1;
+	return (i);
+}

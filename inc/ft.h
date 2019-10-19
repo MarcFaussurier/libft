@@ -13,8 +13,10 @@
 
 #ifndef FT_H
 # define FT_H
+# include <stdlib.h>
+# include <unistd.h>
 # include <ft_bool.h>
-# include <ft_inttypes.h>
 # include <ft_memory.h>
 # include <ft_string.h>
+# include <ft_list.h>
 #endif

@@ -15,5 +15,19 @@
 # define FT_MEMORY_H
 # include <ft.h>
 
-void	*ft_memset(void *b, int c, t_size_t len);
+void	*ft_memset(void *b, int c, size_t len);
+void    ft_bzero(void *s, size_t n);
+void    ft_explicit_bzero(void *s, size_t n);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+void    *ft_memchr(const void *s, int c, size_t n);
+void    *ft_memrchr(const void *s, int c, size_t n);
+void    *ft_rawmemchr(const void *s, int c);
+int     ft_memcmp(const void *s1, const void *s2, size_t n);
+void    *ft_malloc(size_t size);
+void    ft_free(void *ptr);
+void    *ft_calloc(size_t nmemb, size_t size);
+void    *ft_realloc(void *ptr, size_t size);
+void    *ft_reallocarray(void *ptr, size_t nmemb, size_t size);
+
 #endif
