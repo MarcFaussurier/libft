@@ -19,3 +19,7 @@ A basic repo I made so that I will spend less time in creating my next projects.
 
 ## Before pushing "la moulinette" dont forget to delete the .misc repo
 - make release
+
+## Credits
+- https://github.com/Keyoung-n/C-Library/blob/master/testfile.c
+- https://github.com/AssemblyScript/libc-test

@@ -1,21 +1,20 @@
 #include "./../../ft.hpp"
 #include "./../../deps/catch2/single_include/catch2/catch.hpp"
 #include "./../test.hpp"
-
 #include <string.h>
 #include <stdlib.h>
 #include <stdint.h>
 
-static char buf[512];
+static char     buf[512];
 
-static void *(*volatile pmemcpy)(void *, const void *, size_t);
+static void     *(*volatile pmemcpy)(void *, const void *, size_t);
 
-static void *aligned(void *p) {
+static void     *aligned(void *p) {
 	return (void*)(((uintptr_t)p + 63) & -64);
 }
 
 #define N 80
-static void test_align(int dalign, int salign, int len)
+static          void test_align(int dalign, int salign, int len)
 {
 	char *src = (char*) aligned(buf);
 	char *dst = (char *) aligned(buf + 128);
