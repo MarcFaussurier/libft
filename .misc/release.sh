@@ -3,9 +3,8 @@ read -r -p "This will delete the misc folder (for moulinette) are you sure? [y/N
 case "$response" in
 	[yY][eE][sS]|[yY])
 		BASEDIR=$(dirname "$0")
-		echo "rm -rf $(pwd)/$BASEDIR"
+		echo "rm -rf $(pwd)/$BASEDIR/catch2"
 		;;
 	*)
-		do_something_else
 		;;
 esac
