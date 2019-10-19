@@ -2,15 +2,14 @@
 
 void    *ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-    char *q = dest;
-	const char *p = src;
-	char ch;
+    char 		*d;
+	const char 	*s;
+	char 		t;
 
-	while (n--) {
-		*q++ = ch = *p++;
-		if (ch == (char)c)
-			return q;
-	}
-
-	return NULL;		/* No instance of "c" found */
+	d = dest;
+	s = src;
+	while (n-- && ((*d++ = t = *s++) || 1)) 
+		if (t == (char)c)
+			return (d);
+	return (NULL);
 }
