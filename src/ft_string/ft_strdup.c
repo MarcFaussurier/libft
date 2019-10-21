@@ -1,4 +1,4 @@
-#include <ft.h>
+#include "../../inc/ft.h"
 
 char    *ft_strdup(const char *src)
 {

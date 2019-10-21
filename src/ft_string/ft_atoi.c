@@ -1,4 +1,5 @@
-#include <ft.h>
+//#include <ft.h>
+#include "./../../inc/ft.h"
 
 int         ft_atoi(const char *str)
 {

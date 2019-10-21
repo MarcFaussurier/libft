@@ -1,4 +1,5 @@
-#include <ft.h>
+#include "../../inc/ft.h"
+
 
 long         ft_atol(const char *str)
 {

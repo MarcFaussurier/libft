@@ -11,8 +11,8 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <ft.h>
-#include <ft_string.h>
+#include "../../inc/ft.h"
+#include "../../inc/ft_string.h"
 
 size_t		ft_strlen(const char *s)
 {

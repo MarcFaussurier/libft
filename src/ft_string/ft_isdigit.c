@@ -1,4 +1,4 @@
-#include <ft.h>
+#include "../../inc/ft.h"
 
 int         ft_isdigit(int c)
 {

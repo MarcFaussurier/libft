@@ -1,4 +1,4 @@
-#include <ft.h>
+#include "./../../inc/ft.h"
 
 size_t      ft_strlcat(char *dst, const	char *src, size_t dstsize)
 {
