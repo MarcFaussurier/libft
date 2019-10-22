@@ -41,7 +41,7 @@ endef
 NAME		:= libft.a
 TYPE		:= static
 DEBUG		:= 0
-TESTDIR		:= .misc/tests
+TESTDIR		:= misc/tests
 
 ifeq ($(CSRC),)
         CSRC                                    := $(call find_by_ext,$(SRCDIR),c)
@@ -82,7 +82,7 @@ endif
 all:                                            $(NAME)
 
 $(BINDIR)/%.o:                          $(SRCDIR)/%.c
-        $(CC) $(CFLAGS)                 -c $< -o $@
+		$(CC) $(CFLAGS)                 -c $< -o $@
 
 $(BINDIR)/%.o:                          $(SRCDIR)/%.cpp
 ifeq ($(CXXENABLED),1)
@@ -90,31 +90,31 @@ ifeq ($(CXXENABLED),1)
 endif
 
 $(BINDIR)/$(TESTDIR)/%.o:       $(TESTDIR)/%.cpp
-        $(CXX) $(CXXFLAGS)      -c $< -o $@
+		$(CXX) $(CXXFLAGS)      -c $< -o $@
 
 $(NAME):                                        $(COBJ) $(CXXOBJ)
 ifeq ($(TYPE),static)
 ifeq ($(CXXENABLED),0)
-        $(AR) $(NAME) $(COBJ)
+		$(AR) $(NAME) $(COBJ)
 endif
 ifeq ($(CXXENABLED),1)
-        $(AR) $(NAME) $(COBJ) $(CXXOBJ)
+		$(AR) $(NAME) $(COBJ) $(CXXOBJ)
 endif
 endif
 ifeq ($(TYPE),shared)
 ifeq ($(CXXENABLED),0)
-        $(CC) $(CFLAGS) -shared $(COBJ) -o $(NAME)
+		$(CC) $(CFLAGS) -shared $(COBJ) -o $(NAME)
 endif
 ifeq ($(CXXENABLED),1)
-        $(CXX) $(CXXFLAGS) -shared $(COBJ) $(CXXOBJ) -o $(NAME)
+		$(CXX) $(CXXFLAGS) -shared $(COBJ) $(CXXOBJ) -o $(NAME)
 endif
 endif
 ifeq ($(TYPE),executable)
 ifeq ($(CXXENABLED),0)
-        $(CC) $(CFLAGS) $(COBJ) -o $(NAME)
+		$(CC) $(CFLAGS) $(COBJ) -o $(NAME)
 endif
 ifeq ($(CXXENABLED),1)
-        $(CXX) $(CXXFLAGS) $(COBJ) $(CXXOBJ) -o $(NAME)
+		$(CXX) $(CXXFLAGS) $(COBJ) $(CXXOBJ) -o $(NAME)
 endif
 endif
 
@@ -122,32 +122,32 @@ mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(patsubst %/,%,$(dir $(mkfile_path)))
 
 watch-compile:
-        source $(current_dir)/watcher.sh "make" "$(SRCDIR)" "$(TESTDIR)"
+		source $(current_dir)/watcher.sh "make" "$(SRCDIR)" "$(TESTDIR)"
 
 watch-test:
-        source $(current_dir)/watcher.sh "make test" "$(SRCDIR)" "$(TESTDIR)"
+		source $(current_dir)/watcher.sh "make test" "$(SRCDIR)" "$(TESTDIR)"
 
 test:                                           $(COBJ) $(CXXOBJ) $(TESTOBJ)
-        $(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
-        ./$(BINDIR)/$(TESTDIR)/$(TEST)
+		$(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
+		./$(BINDIR)/$(TESTDIR)/$(TEST)
 
 clean:
-        $(RM) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CDF) $(CXXDF) $(TESTDF)
+		$(RM) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CDF) $(CXXDF) $(TESTDF)
 
 fclean:
-        $(RM) $(NAME) $(BINDIR)/$(TESTDIR)/$(TEST)
+		$(RM) $(NAME) $(BINDIR)/$(TESTDIR)/$(TEST)
 
 re:
-        fclean all test
+		fclean all test
 
 .PHONY:
-        all fclean clean re test
+		all fclean clean re test
 
 #install:
 #	./.misc/install.sh
 
 norme:
-	norminette
+		norminette
 
 release:
-	./.misc/release.sh
+		./.misc/release.sh

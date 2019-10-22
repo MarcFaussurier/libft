@@ -1,4 +1,4 @@
-#include <ft.h>
+#include "../../inc/ft.h"
 
 void    ft_bzero(void *s, size_t n)
 {

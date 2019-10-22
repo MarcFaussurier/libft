@@ -1,4 +1,4 @@
-#include <ft.h>
+#include "./../../inc/ft.h"
 
 void        *ft_calloc(size_t nmemb, size_t size) {
 	unsigned nbytes = nmemb * size;
