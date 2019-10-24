@@ -3387,6 +3387,7 @@ f	misc/deps/catch2/projects/ExtraTests/X02-DisabledMacros.cpp	/^foo f;$/;"	v	typ
 f	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^        foo f;$/;"	v	namespace:__anonb1aeb3b90110::CompilationTests	typeref:typename:foo
 f	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^static int f() {$/;"	f	namespace:__anone7dbb1860110::MiscTests	typeref:typename:int	file:
 f	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^    void f() {}$/;"	f	struct:S	typeref:typename:void	file:
+f	misc/tests/ft_string/strmapi.cpp	/^char    f(unsigned int i, char c)$/;"	f	typeref:typename:char
 factorial	misc/deps/catch2/projects/ExtraTests/X20-BenchmarkingMacros.cpp	/^std::uint64_t factorial(std::uint64_t number) {$/;"	f	namespace:__anoneac8fe840110	typeref:typename:std::uint64_t
 fail	misc/deps/catch2/include/internal/catch_test_case_tracker.cpp	/^    void TrackerBase::fail() {$/;"	f	class:Catch::TestCaseTracking::TrackerBase	typeref:typename:void
 failed	misc/deps/catch2/include/internal/catch_totals.h	/^        std::size_t failed = 0;$/;"	m	struct:Catch::Counts	typeref:typename:std::size_t
@@ -3484,6 +3485,7 @@ ft_strjoin	src/ft_string/ft_strjoin.c	/^char *ft_strjoin(char const *s1, char co
 ft_strlcat	src/ft_string/ft_strlcat.c	/^size_t      ft_strlcat(char *dst, const	char *src, size_t dstsize)$/;"	f	typeref:typename:size_t
 ft_strlcpy	src/ft_string/ft_strlcpy.c	/^size_t      ft_strlcpy(char *dest, const char *src, size_t len)$/;"	f	typeref:typename:size_t
 ft_strlen	src/ft_string/ft_strlen.c	/^size_t		ft_strlen(const char *s)$/;"	f	typeref:typename:size_t
+ft_strmapi	src/ft_string/ft_strmapi.c	/^char    *ft_strmapi(const char *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
 ft_strncmp	src/ft_string/ft_strncmp.c	/^int         ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f	typeref:typename:int
 ft_strnlen	src/ft_string/ft_strnlen.c	/^size_t		ft_strnlen(const char *s, size_t maxlen)$/;"	f	typeref:typename:size_t
 ft_strnstr	src/ft_string/ft_strnstr.c	/^char    *ft_strnstr(const char *haystack, const char *needle, size_t slen)$/;"	f	typeref:typename:char *
@@ -4824,6 +4826,7 @@ options	misc/deps/catch2/scripts/benchmarkCompile.py	/^options = ['all', 'main',
 original	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        StringRef original = StringRef( "original string" ).substr(0, 8);$/;"	v	typeref:typename:StringRef
 originalBackgroundAttributes	misc/deps/catch2/include/internal/catch_console_colour.cpp	/^        WORD originalBackgroundAttributes;$/;"	m	class:Catch::__anonabe5bc570210::Win32ColourImpl	typeref:typename:WORD	file:
 originalForegroundAttributes	misc/deps/catch2/include/internal/catch_console_colour.cpp	/^        WORD originalForegroundAttributes;$/;"	m	class:Catch::__anonabe5bc570210::Win32ColourImpl	typeref:typename:WORD	file:
+out	misc/tests/ft_string/strmapi.cpp	/^    char    *out;$/;"	v	typeref:typename:char *
 out_buff	misc/deps/catch2/examples/231-Cfg-OutputStreams.cpp	/^    out_buff(std::FILE* stream) :m_stream(stream) {}$/;"	f	class:out_buff	file:
 out_buff	misc/deps/catch2/examples/231-Cfg-OutputStreams.cpp	/^class out_buff : public std::stringbuf {$/;"	c	file:
 outerNamespace	misc/deps/catch2/scripts/embedClara.py	/^outerNamespace = { "clara": ("Catch", "clara") }$/;"	v
@@ -5471,6 +5474,7 @@ symbol	misc/deps/catch2/single_include/catch2/catch.hpp	/^std::string ratio_stri
 sync	misc/deps/catch2/examples/231-Cfg-OutputStreams.cpp	/^    int sync() {$/;"	f	class:out_buff	typeref:typename:int	file:
 sync	misc/deps/catch2/include/internal/catch_stream.cpp	/^            int sync() override {$/;"	f	class:Catch::Detail::__anond61e3add0110::StreamBufImpl	typeref:typename:int	file:
 synchronizing_callback	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^        inline static void synchronizing_callback( void * ) { }$/;"	f	namespace:__anonb1aeb3b90110::CompilationTests::utility	typeref:typename:void	file:
+t	misc/tests/ft_string/strmapi.cpp	/^    char    const *t = "hello world";$/;"	v	typeref:typename:char const *
 t1	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^        logic_t t1, t2;$/;"	v	namespace:__anonb1aeb3b90110::CompilationTests	typeref:typename:logic_t
 t1	misc/deps/catch2/projects/SelfTest/UsageTests/Matchers.tests.cpp	/^                std::vector<double> empty, t1({1, 2});$/;"	v	namespace:__anon96897c110110::MatchersTests	typeref:typename:std::vector<double>
 t1	misc/deps/catch2/projects/SelfTest/UsageTests/Message.tests.cpp	/^    T1 t1;$/;"	m	struct:helper_1436	typeref:typename:T1	file:

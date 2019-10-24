@@ -24,7 +24,6 @@ void            *ft_memchr(const void *s, int c, size_t n);
 int             ft_memcmp(const void *s1, const void *s2, size_t n);
 void            ft_free_until(void **array, void *end);
 void            *ft_calloc(size_t nmemb, size_t size);
-unsigned int    ft_bytes_digits(size_t bytes);
 unsigned short  ft_numlen(int n);
 
 
