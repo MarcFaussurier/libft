@@ -2894,6 +2894,7 @@ b	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^    for( int b 
 b	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^    int b = 2;$/;"	v	namespace:__anone7dbb1860110::MiscTests	typeref:typename:int
 b	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        int b;$/;"	m	struct:A::X	typeref:typename:int	file:
 b	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        int b;$/;"	m	struct:B::Y	typeref:typename:int	file:
+b	misc/tests/ft_string/strcpy.cpp	/^    char    b[32];$/;"	v	typeref:typename:char[32]
 b	misc/tests/ft_string/strlcat.cpp	/^    char b[32];$/;"	v	typeref:typename:char[32]
 b	misc/tests/ft_string/strlcpy.cpp	/^    char b[32];$/;"	v	typeref:typename:char[32]
 bar	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^namespace bar {$/;"	n	file:
@@ -3471,6 +3472,7 @@ ft_memmove	src/ft_memory/ft_memmove.c	/^void    *ft_memmove(void *dest, const vo
 ft_memset	src/ft_memory/ft_memset.c	/^void    *ft_memset(void *s, int c, size_t len)$/;"	f	typeref:typename:void *
 ft_split	src/ft_string/ft_split.c	/^char            **ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
 ft_strchr	src/ft_string/ft_strchr.c	/^char        *ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strcpy	src/ft_string/ft_strcpy.c	/^char        *ft_strcpy(char *dst, const char *src)$/;"	f	typeref:typename:char *
 ft_strdup	src/ft_string/ft_strdup.c	/^char    *ft_strdup(const char *src)$/;"	f	typeref:typename:char *
 ft_strjoin	src/ft_string/ft_strjoin.c	/^char *ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *
 ft_strlcat	src/ft_string/ft_strlcat.c	/^size_t      ft_strlcat(char *dst, const	char *src, size_t dstsize)$/;"	f	typeref:typename:size_t
@@ -5616,6 +5618,7 @@ timestampsParser	misc/deps/catch2/scripts/approvalTests.py	/^timestampsParser = 
 tmemccpy	misc/tests/ft_memory/memccpy.cpp	/^	char tmemccpy[2][7]  =  { "abcde", "abcdef" };$/;"	v	typeref:typename:char[2][7]
 tmemchr	misc/tests/ft_memory/memchr.cpp	/^	char tmemchr[] = "www.test.com";$/;"	v	typeref:typename:char[]
 tmemmove	misc/tests/ft_memory/memmove.cpp	/^	char tmemmove[] = "abcde";$/;"	v	typeref:typename:char[]
+tmp	misc/tests/ft_string/strcpy.cpp	/^    char    tmp[] = "";$/;"	v	typeref:typename:char[]
 to	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^    auto to = std::get<1>(extent);$/;"	v	typeref:typename:auto
 toLower	misc/deps/catch2/include/internal/catch_string_manip.cpp	/^    std::string toLower( std::string const& s ) {$/;"	f	namespace:Catch	typeref:typename:std::string
 toLowerCh	misc/deps/catch2/include/internal/catch_string_manip.cpp	/^        char toLowerCh(char c) {$/;"	f	namespace:Catch::__anon12195f9c0110	typeref:typename:char

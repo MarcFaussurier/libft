@@ -50,5 +50,6 @@ unsigned int    ft_count_occ(const char *s, char c);
 char            **ft_split(char const *s2, char c);
 char            *ft_itoa(int n);
 char            *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char            *ft_strcpy(char *dst, const char *src);
 
 #endif

@@ -10,5 +10,4 @@ TEST_CASE( "ft_strdup")
     REQUIRE(0 == strcmp(string, copy));
     REQUIRE(11 == strlen(copy));
     free(copy);
-    REQUIRE(NULL == ft_strdup(NULL));
 }
