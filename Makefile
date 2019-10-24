@@ -1,18 +1,18 @@
 # string variables
-SRCDIR                                          := src#                 folder path
-BINDIR                                          := bin#                 fodler path
-TESTDIR                                         := test#                test path
-NAME                                            := a.out#               compiled binary path (relative from project root)
-TEST                                            := test#                test executable path (relative from project root/$BINPATH/$TESTPATH/)
-TYPE                                            := executable#  executable, static or shared
-DEBUG                                           := 1#                   0 or 1 switch
-CXXENABLED                                      := 0#                   0 or 1 switch
+SRCDIR                                          := src
+BINDIR                                          := bin
+TESTDIR                                         := test
+NAME                                            := a.out
+TEST                                            := test
+TYPE                                            := executable
+DEBUG                                           := 1
+CXXENABLED                                      := 0
 # default toolchain
 SHELL                                           := /bin/bash
-RM                                                      := /bin/rm -f
-AR                                                      := ar rcs
-CC                                                      := gcc
-CXX                                                     := g++
+RM                                              := /bin/rm -f
+AR                                              := ar rcs
+CC                                              := gcc
+CXX                                             := g++
 # default flags
 CFLAGS                                          := -MMD -Werror -Wextra -Wall
 CXXFLAGS                                        := -std=c++11 $(CFLAGS)
@@ -34,21 +34,17 @@ endef
 define replace_ext
         $(patsubst %.$(1),%.$(2),$(3))
 endef
-
-
-# here you can overide default values set inside header.mk
-# mimal example:
+# project-specific
 NAME		:= libft.a
 TYPE		:= static
 DEBUG		:= 0
 TESTDIR		:= misc/tests
-
 ifeq ($(CSRC),)
         CSRC                                    := $(call find_by_ext,$(SRCDIR),c)
 endif
 ifeq ($(COBJ),)
         COBJ                                    := $(call replace_ext,c,o,$(call str_replace,$(CSRC),$(SRCDIR),$(BINDIR)))
-        CDF                                             := $(call replace_ext,o,d,$(COBJ))
+        CDF                                     := $(call replace_ext,o,d,$(COBJ))
 endif
 ifeq ($(CXXSRC),)
         CXXSRC                                  := $(call find_by_ext,$(SRCDIR),cpp)
@@ -78,19 +74,19 @@ ifeq ($(DEBUG),1)
         CXXFLAGS                                += -g -fsanitize=address -fno-omit-frame-pointer
         CFLAGS                                  += -g -fsanitize=address -fno-omit-frame-pointer
 endif
-
+# make rules
 all:                                            $(NAME)
 
-$(BINDIR)/%.o:                          $(SRCDIR)/%.c
-		$(CC) $(CFLAGS)                 -c $< -o $@
+$(BINDIR)/%.o:							$(SRCDIR)/%.c
+		$(CC) $(CFLAGS)			-c		$< -o		$@
 
-$(BINDIR)/%.o:                          $(SRCDIR)/%.cpp
+$(BINDIR)/%.o:							$(SRCDIR)/%.cpp
 ifeq ($(CXXENABLED),1)
-        $(CXX) $(CXXFLAGS)      -c $< -o $@
+        $(CXX) $(CXXFLAGS)		-c		$< -o		$@
 endif
 
-$(BINDIR)/$(TESTDIR)/%.o:       $(TESTDIR)/%.cpp
-		$(CXX) $(CXXFLAGS)      -c $< -o $@
+$(BINDIR)/$(TESTDIR)/%.o:				$(TESTDIR)/%.cpp
+		$(CXX) $(CXXFLAGS)		-c		$< -o		$@
 
 $(NAME):                                        $(COBJ) $(CXXOBJ)
 ifeq ($(TYPE),static)
@@ -140,9 +136,6 @@ fclean:
 re:
 		fclean all test
 
-.PHONY:
-		all fclean clean re test
-
 #install:
 #	./.misc/install.sh
 
@@ -151,3 +144,7 @@ norme:
 
 release:
 		./.misc/release.sh
+
+.PHONY:
+		all fclean clean re test
+

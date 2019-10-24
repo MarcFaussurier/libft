@@ -17,7 +17,9 @@ TEST_CASE("ft_split")
     REQUIRE(strcmp(o[1], "world") == 0);
     REQUIRE(strcmp(o[2], "world") == 0);
     REQUIRE(o[3] == 0);
+    ft_free_until((void**)o, NULL);
     char s2[] = "";
     o = ft_split(s2, s);
     REQUIRE(o[0] == NULL);
+    ft_free_until((void**)o, NULL);
 }
