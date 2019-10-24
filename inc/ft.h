@@ -19,4 +19,5 @@
 # include "ft_memory.h"
 # include "ft_string.h"
 # include "ft_list.h"
+# include "ft_io.h"
 #endif

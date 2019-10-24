@@ -3477,6 +3477,19 @@ ft_memset	src/ft_memory/ft_memset.c	/^void    *ft_memset(void *s, int c, size_t 
 ft_min_value	src/ft_memory/ft_maxint.c	/^unsigned long long ft_min_value(size_t bytes)$/;"	f	typeref:typename:unsigned long long
 ft_minvalue	src/ft_memory/ft_maxint.c	/^long long   ft_minvalue(size_t bytes)$/;"	f	typeref:typename:long long
 ft_numlen	src/ft_memory/ft_numlen.c	/^unsigned short     ft_numlen(int n)$/;"	f	typeref:typename:unsigned short
+ft_putchar	src/ft_io/ft_putchar.c	/^void    ft_putchar(char c)$/;"	f	typeref:typename:void
+ft_putchar	src/ft_string/ft_putchar.c	/^void    ft_putchar(char c)$/;"	f	typeref:typename:void
+ft_putchar_fd	src/ft_string/ft_putchar_fd.c	/^void ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl	src/ft_io/ft_putendl.c	/^void ft_putendl(char *s)$/;"	f	typeref:typename:void
+ft_putendl_fd	src/ft_io/ft_putendl_fd.c	/^void ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr	src/ft_io/ft_putnbr.c	/^void ft_putnbr(int n)$/;"	f	typeref:typename:void
+ft_putnbr_fd	src/ft_io/ft_putnbr_fd.c	/^void ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putstr	src/ft_io/ft_putstr.c	/^void    ft_putstr(char *s)$/;"	f	typeref:typename:void
+ft_putstr_fd	src/ft_io/ft_putstr_fd.c	/^void ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putstr_fd	src/ft_string/ft_putstr_fd.c	/^void ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_read	src/ft_io/ft_read.c	/^char    *ft_read(char delimiter)$/;"	f	typeref:typename:char *
+ft_read_fd	src/ft_io/ft_read_fd.c	/^char    *ft_read_fd(char delimiter, int fd)$/;"	f	typeref:typename:char *
+ft_realloc	src/ft_memory/ft_realloc.c	/^void    *ft_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
 ft_split	src/ft_string/ft_split.c	/^char            **ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
 ft_strchr	src/ft_string/ft_strchr.c	/^char        *ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
 ft_strcpy	src/ft_string/ft_strcpy.c	/^char        *ft_strcpy(char *dst, const char *src)$/;"	f	typeref:typename:char *
@@ -4593,6 +4606,7 @@ o	misc/tests/ft_string/substr.cpp	/^    char *o = ft_substr(s1, 6, 5);$/;"	v	typ
 o	misc/tests/ft_string/substr.cpp	/^    char *o = ft_substr(s1, 6, 6);$/;"	v	typeref:typename:char *
 o1	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^    Opaque o1, o2;$/;"	v	typeref:typename:Opaque
 o2	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^    Opaque o1, o2;$/;"	v	typeref:typename:Opaque
+ob	src/ft_io/ft_ob.c	/^char	*ob(void	(*callback)())$/;"	f	typeref:typename:char *
 obj	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^    Obj obj;$/;"	v	typeref:typename:Obj
 obj	misc/deps/catch2/projects/XCode/OCTest/OCTest/CatchOCTestCase.h	/^    TestObj* obj;$/;"	E	interface:TestFixture
 obj	misc/deps/catch2/projects/XCode/OCTest/OCTest/CatchOCTestCase.mm	/^    CHECK( [obj isFalse] == YES );$/;"	C	implementation:TestFixture
