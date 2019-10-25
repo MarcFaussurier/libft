@@ -6,9 +6,13 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
 $(BINDIR)/$(TESTDIR)/%.o	Makefile	/^$(BINDIR)\/$(TESTDIR)\/%.o:	$(TESTDIR)\/%.cpp$/;"	t
+$(BINDIR)/$(TESTDIR)/%.o	misc/Makefile	/^$(BINDIR)\/$(TESTDIR)\/%.o:	$(TESTDIR)\/%.cpp$/;"	t
 $(BINDIR)/%.o	Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.c$/;"	t
 $(BINDIR)/%.o	Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.cpp$/;"	t
+$(BINDIR)/%.o	misc/Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.c$/;"	t
+$(BINDIR)/%.o	misc/Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.cpp$/;"	t
 $(NAME)	Makefile	/^$(NAME):                                        $(COBJ) $(CXXOBJ)$/;"	t
+$(NAME)	misc/Makefile	/^$(NAME):                                        $(COBJ) $(CXXOBJ)$/;"	t
 020-TestCase	misc/deps/catch2/examples/CMakeLists.txt	/^add_executable( 020-TestCase ${EXAMPLES_DIR}\/020-TestCase-1.cpp ${EXAMPLES_DIR}\/020-TestCase-2/;"	t
 1.10.0	misc/deps/catch2/docs/release-notes.md	/^#### 1.10.0$/;"	t
 1.10.x	misc/deps/catch2/docs/release-notes.md	/^### 1.10.x$/;"	S
@@ -72,7 +76,9 @@ AND_WHEN	misc/deps/catch2/include/catch.hpp	/^#define AND_WHEN(/;"	d
 ANON_TEST_CASE	misc/deps/catch2/include/catch.hpp	/^#define ANON_TEST_CASE(/;"	d
 APPROX_TEST_HELPERS_INCLUDED	misc/deps/catch2/projects/SelfTest/UsageTests/Approx.tests.cpp	/^#define APPROX_TEST_HELPERS_INCLUDED$/;"	d	file:
 AR	Makefile	/^AR			?= ar$/;"	m
+AR	misc/Makefile	/^AR			?= ar$/;"	m
 ARFLAGS	Makefile	/^ARFLAGS		?= -rcs$/;"	m
+ARFLAGS	misc/Makefile	/^ARFLAGS		?= -rcs$/;"	m
 Aborting after a certain number of failures	misc/deps/catch2/docs/command-line.md	/^## Aborting after a certain number of failures$/;"	s
 Adding your own command line options	misc/deps/catch2/docs/own-main.md	/^## Adding your own command line options$/;"	s
 Advanced benchmarking	misc/deps/catch2/docs/benchmarks.md	/^### Advanced benchmarking$/;"	S
@@ -148,6 +154,7 @@ BENCHMARK_DIR	misc/deps/catch2/CMakeLists.txt	/^set(BENCHMARK_DIR ${CATCH_DIR}\/
 BENCHMARK_HEADERS	misc/deps/catch2/projects/CMakeLists.txt	/^set(BENCHMARK_HEADERS$/;"	v
 BENCHMARK_SOURCES	misc/deps/catch2/projects/CMakeLists.txt	/^set(BENCHMARK_SOURCES$/;"	v
 BINDIR	Makefile	/^BINDIR      ?= bin$/;"	m
+BINDIR	misc/Makefile	/^BINDIR      ?= bin$/;"	m
 BUFFER	misc/deps/catch2/CMake/FindGcov.cmake	/^	set(BUFFER "")$/;"	v	function:add_gcov_target
 Bar	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^struct Bar {$/;"	s	namespace:__anone7dbb1860110::MiscTests	file:
 BasicResult	misc/deps/catch2/include/external/clara.hpp	/^        BasicResult( ResultBase::Type type, std::string const &message )$/;"	f	class:Catch::clara::detail::BasicResult
@@ -607,8 +614,11 @@ CATCH_VERSION_PATCH	misc/deps/catch2/single_include/catch2/catch.hpp	/^#define C
 CATCH_WARN	misc/deps/catch2/include/catch.hpp	/^#define CATCH_WARN(/;"	d
 CATCH_WHEN	misc/deps/catch2/include/catch.hpp	/^#define CATCH_WHEN(/;"	d
 CC	Makefile	/^CC          ?= gcc$/;"	m
+CC	misc/Makefile	/^CC          ?= gcc$/;"	m
 CDF	Makefile	/^CDF         ?= $(call replace_ext,o,d,$(COBJ))$/;"	m
+CDF	misc/Makefile	/^CDF         ?= $(call replace_ext,o,d,$(COBJ))$/;"	m
 CFLAGS	Makefile	/^CFLAGS      ?= $(CFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
+CFLAGS	misc/Makefile	/^CFLAGS      ?= $(CFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
 CHECK	misc/deps/catch2/include/catch.hpp	/^#define CHECK(/;"	d
 CHECK	misc/deps/catch2/projects/XCode/OCTest/OCTest/CatchOCTestCase.mm	/^    CHECK( [obj isTrue] == NO );$/;"	C	implementation:TestFixture
 CHECKED_ELSE	misc/deps/catch2/include/catch.hpp	/^#define CHECKED_ELSE(/;"	d
@@ -651,24 +661,38 @@ CMake integration	misc/deps/catch2/docs/cmake-integration.md	/^# CMake integrati
 CMake project options	misc/deps/catch2/docs/cmake-integration.md	/^## CMake project options$/;"	s
 CMake target	misc/deps/catch2/docs/cmake-integration.md	/^## CMake target$/;"	s
 COBJ	Makefile	/^COBJ        ?= $(call replace_ext,c,o,$(call str_replace,$(CSRC),$(SRCDIR),$(BINDIR)))$/;"	m
+COBJ	misc/Makefile	/^COBJ        ?= $(call replace_ext,c,o,$(call str_replace,$(CSRC),$(SRCDIR),$(BINDIR)))$/;"	m
 COMPILATION_TEST_HELPERS_INCLUDED	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^#define COMPILATION_TEST_HELPERS_INCLUDED$/;"	d	file:
 COMPILER	misc/deps/catch2/CMake/Findcodecov.cmake	/^	set(COMPILER ${CMAKE_${LANG}_COMPILER_ID})$/;"	v
 CONDITION_TEST_HELPERS_INCLUDED	misc/deps/catch2/projects/SelfTest/UsageTests/Condition.tests.cpp	/^#define CONDITION_TEST_HELPERS_INCLUDED$/;"	d	file:
 COVERAGE_FLAG_CANDIDATES	misc/deps/catch2/CMake/Findcodecov.cmake	/^set(COVERAGE_FLAG_CANDIDATES$/;"	v
 CPACK_PACKAGE_CONTACT	misc/deps/catch2/CMakeLists.txt	/^    set(CPACK_PACKAGE_CONTACT "https:\/\/github.com\/catchorg\/Catch2\/")$/;"	v
 CPACK_PACKAGE_VERSION	misc/deps/catch2/CMakeLists.txt	/^        set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})$/;"	v
-CSRC	Makefile	/^CSRC        ?=# $(call find_by_ext,$(SRCDIR),c)$/;"	m
+CSRC	Makefile	/^CSRC			:=.\/src\/ft_string\/ft_strnstr.c\\$/;"	m
+CSRC	Makefile	/^CSRC        ?= $(call find_by_ext,$(SRCDIR),c)$/;"	m
+CSRC	misc/Makefile	/^CSRC			:=.\/src\/ft_string\/ft_strnstr.c\\$/;"	m
+CSRC	misc/Makefile	/^CSRC        ?= $(call find_by_ext,$(SRCDIR),c)$/;"	m
 CTestName	misc/deps/catch2/contrib/ParseAndAddCatchTests.cmake	/^            set(CTestName "${Name}")$/;"	v	function:ParseAndAddCatchTests_ParseFile
 CTestName	misc/deps/catch2/contrib/ParseAndAddCatchTests.cmake	/^            set(CTestName "${TestFixture}:${Name}")$/;"	v	function:ParseAndAddCatchTests_ParseFile
 CTestName	misc/deps/catch2/contrib/ParseAndAddCatchTests.cmake	/^            set(CTestName "${TestTarget}:${CTestName}")$/;"	v	function:ParseAndAddCatchTests_ParseFile
 CURRENT_DIR	Makefile	/^CURRENT_DIR ?= $(patsubst %\/,%,$(dir $(MKFILE_PATH)))$/;"	m
+CURRENT_DIR	misc/Makefile	/^CURRENT_DIR ?= $(patsubst %\/,%,$(dir $(MKFILE_PATH)))$/;"	m
 CXX	Makefile	/^CXX         ?= g++$/;"	m
+CXX	misc/Makefile	/^CXX         ?= g++$/;"	m
 CXXDF	Makefile	/^CXXDF       ?= $(call replace_ext,o,d,$(COBJ))$/;"	m
+CXXDF	misc/Makefile	/^CXXDF       ?= $(call replace_ext,o,d,$(COBJ))$/;"	m
 CXXENABLED	Makefile	/^CXXENABLED  ?= 0$/;"	m
+CXXENABLED	misc/Makefile	/^CXXENABLED  ?= 0$/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS    ?= $(CXXFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS    ?= -std=c++11 $(CFLAGS)$/;"	m
+CXXFLAGS	misc/Makefile	/^CXXFLAGS    ?= $(CXXFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
+CXXFLAGS	misc/Makefile	/^CXXFLAGS    ?= -std=c++11 $(CFLAGS)$/;"	m
 CXXOBJ	Makefile	/^CXXOBJ      ?= $(call replace_ext,cpp,o,$(call str_replace,$(CXXSRC),$(SRCDIR),$(BINDIR)))$/;"	m
-CXXSRC	Makefile	/^CXXSRC      ?=# $(call find_by_ext,$(SRCDIR),cpp)$/;"	m
+CXXOBJ	misc/Makefile	/^CXXOBJ      ?= $(call replace_ext,cpp,o,$(call str_replace,$(CXXSRC),$(SRCDIR),$(BINDIR)))$/;"	m
+CXXSRC	Makefile	/^CXXSRC		:=$/;"	m
+CXXSRC	Makefile	/^CXXSRC      ?= $(call find_by_ext,$(SRCDIR),cpp)$/;"	m
+CXXSRC	misc/Makefile	/^CXXSRC		:=$/;"	m
+CXXSRC	misc/Makefile	/^CXXSRC      ?= $(call find_by_ext,$(SRCDIR),cpp)$/;"	m
 Capturer	misc/deps/catch2/include/internal/catch_message.cpp	/^    Capturer::Capturer( StringRef macroName, SourceLineInfo const& lineInfo, ResultWas::OfType r/;"	f	class:Catch::Capturer
 Capturer	misc/deps/catch2/include/internal/catch_message.h	/^    class Capturer {$/;"	c	namespace:Catch
 CaseSensitive	misc/deps/catch2/include/internal/catch_common.h	/^    struct CaseSensitive { enum Choice {$/;"	s	namespace:Catch
@@ -981,7 +1005,11 @@ DBConnection	misc/deps/catch2/examples/110-Fix-ClassFixture.cpp	/^class DBConnec
 DEBUG	Makefile	/^DEBUG		:= 0$/;"	m
 DEBUG	Makefile	/^DEBUG		?= 0$/;"	m
 DEBUG	Makefile	/^DEBUG       ?= 1$/;"	m
+DEBUG	misc/Makefile	/^DEBUG		:= 0$/;"	m
+DEBUG	misc/Makefile	/^DEBUG		?= 0$/;"	m
+DEBUG	misc/Makefile	/^DEBUG       ?= 1$/;"	m
 DEBUGFLAGS	Makefile	/^DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer$/;"	m
+DEBUGFLAGS	misc/Makefile	/^DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer$/;"	m
 DESCRIPTION	misc/deps/catch2/projects/XCode/OCTest/OCTest/OCTest.1	/^.Sh DESCRIPTION          \\" Section Header - required - don't modify$/;"	s
 DYNAMIC_SECTION	misc/deps/catch2/include/catch.hpp	/^#define DYNAMIC_SECTION(/;"	d
 Data	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^struct Data { std::string str; size_t len; };$/;"	s	file:
@@ -1277,6 +1305,8 @@ IMutableEnumValuesRegistry	misc/deps/catch2/single_include/catch2/catch.hpp	/^  
 IMutableRegistryHub	misc/deps/catch2/include/internal/catch_interfaces_registry_hub.h	/^    struct IMutableRegistryHub {$/;"	s	namespace:Catch
 INCDIR	Makefile	/^INCDIR      ?= $(addprefix -I $(INCDIR))$/;"	m
 INCDIR	Makefile	/^INCDIR      ?= inc\/$/;"	m
+INCDIR	misc/Makefile	/^INCDIR      ?= $(addprefix -I $(INCDIR))$/;"	m
+INCDIR	misc/Makefile	/^INCDIR      ?= inc\/$/;"	m
 INFO	misc/deps/catch2/include/catch.hpp	/^#define INFO(/;"	d
 INTERNAL_CATCH_BENCHMARK	misc/deps/catch2/include/internal/benchmark/catch_benchmark.hpp	/^#define INTERNAL_CATCH_BENCHMARK(/;"	d
 INTERNAL_CATCH_BENCHMARK_ADVANCED	misc/deps/catch2/include/internal/benchmark/catch_benchmark.hpp	/^#define INTERNAL_CATCH_BENCHMARK_ADVANCED(/;"	d
@@ -1550,9 +1580,13 @@ LCOV_EXTRA_FLAGS	misc/deps/catch2/CMake/FindLcov.cmake	/^	set(LCOV_EXTRA_FLAGS "
 LCOV_HTML_PATH	misc/deps/catch2/CMake/FindLcov.cmake	/^set(LCOV_HTML_PATH "${CMAKE_BINARY_DIR}\/lcov\/html")$/;"	v
 LCOV_REMOVE_PATTERNS	misc/deps/catch2/CMake/FindLcov.cmake	/^set(LCOV_REMOVE_PATTERNS "")$/;"	v
 LIBDIR	Makefile	/^LIBDIR      ?= $(addprefix -L,$(LIBDIR))$/;"	m
+LIBDIR	misc/Makefile	/^LIBDIR      ?= $(addprefix -L,$(LIBDIR))$/;"	m
 LIBNAME	Makefile	/^LIBNAME     ?= $(addprefix -l $(LIBNAME))$/;"	m
 LIBNAME	Makefile	/^LIBNAME     ?=# foobar$/;"	m
+LIBNAME	misc/Makefile	/^LIBNAME     ?= $(addprefix -l $(LIBNAME))$/;"	m
+LIBNAME	misc/Makefile	/^LIBNAME     ?=# foobar$/;"	m
 LIBPATH	Makefile	/^LIBPATH     ?=# .\/..\/..\/lib$/;"	m
+LIBPATH	misc/Makefile	/^LIBPATH     ?=# .\/..\/..\/lib$/;"	m
 Labels	misc/deps/catch2/contrib/ParseAndAddCatchTests.cmake	/^        set(Labels ${TestTarget})$/;"	v	function:ParseAndAddCatchTests_ParseFile
 LambdaInvoker	misc/deps/catch2/include/external/clara.hpp	/^    struct LambdaInvoker {$/;"	s	namespace:Catch::clara::detail
 LambdaInvoker	misc/deps/catch2/include/external/clara.hpp	/^    struct LambdaInvoker<void> {$/;"	s	namespace:Catch::clara::detail
@@ -1598,6 +1632,7 @@ METHOD_AS_TEST_CASE	misc/deps/catch2/include/catch.hpp	/^#define METHOD_AS_TEST_
 MF	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^    typedef void (S::*MF)();$/;"	t	typeref:typename:void (S::*)()	file:
 MISC_TEST_HELPERS_INCLUDED	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^#define MISC_TEST_HELPERS_INCLUDED$/;"	d	file:
 MKFILE_PATH	Makefile	/^MKFILE_PATH ?= $(abspath $(lastword $(MAKEFILE_LIST)))$/;"	m
+MKFILE_PATH	misc/Makefile	/^MKFILE_PATH ?= $(abspath $(lastword $(MAKEFILE_LIST)))$/;"	m
 Make whitespace visible	misc/deps/catch2/docs/command-line.md	/^## Make whitespace visible$/;"	s
 MapFunctionReturnType	misc/deps/catch2/include/internal/catch_generators_generic.hpp	/^    using MapFunctionReturnType = std::remove_reference_t<std::remove_cv_t<std::invoke_result_t</;"	t	namespace:Catch::Generators	typeref:typename:std::remove_reference_t<std::remove_cv_t<std::invoke_result_t<Func,U>>>
 MapFunctionReturnType	misc/deps/catch2/include/internal/catch_generators_generic.hpp	/^    using MapFunctionReturnType = typename std::remove_reference<typename std::remove_cv<typenam/;"	t	namespace:Catch::Generators
@@ -1666,6 +1701,8 @@ N	misc/tests/ft_memory/memset.cpp	/^#define N /;"	d	file:
 N	misc/tests/ft_string/strchr.cpp	/^#define N(/;"	d	file:
 NAME	Makefile	/^NAME		:= libft.a$/;"	m
 NAME	Makefile	/^NAME        ?= a.out$/;"	m
+NAME	misc/Makefile	/^NAME		:= libft.a$/;"	m
+NAME	misc/Makefile	/^NAME        ?= a.out$/;"	m
 NAME	misc/deps/catch2/projects/XCode/OCTest/OCTest/OCTest.1	/^.Sh NAME                 \\" Section Header - required - don't modify$/;"	s
 NAMES_REPORTERS	misc/deps/catch2/examples/CMakeLists.txt	/^set( NAMES_REPORTERS TeamCity )$/;"	v
 NOMINMAX	misc/deps/catch2/include/internal/catch_windows_h_proxy.h	/^#  define NOMINMAX$/;"	d
@@ -1863,6 +1900,7 @@ REQUIRE_THROWS_AS	misc/deps/catch2/include/catch.hpp	/^#define REQUIRE_THROWS_AS
 REQUIRE_THROWS_MATCHES	misc/deps/catch2/include/catch.hpp	/^#define REQUIRE_THROWS_MATCHES(/;"	d
 REQUIRE_THROWS_WITH	misc/deps/catch2/include/catch.hpp	/^#define REQUIRE_THROWS_WITH(/;"	d
 RM	Makefile	/^RM          ?= \/bin\/rm -f$/;"	m
+RM	misc/Makefile	/^RM          ?= \/bin\/rm -f$/;"	m
 RandomFloatingGenerator	misc/deps/catch2/include/internal/catch_generators_specific.hpp	/^    RandomFloatingGenerator(Float a, Float b):$/;"	f	class:Catch::Generators::RandomFloatingGenerator
 RandomFloatingGenerator	misc/deps/catch2/include/internal/catch_generators_specific.hpp	/^class RandomFloatingGenerator final : public IGenerator<Float> {$/;"	c	namespace:Catch::Generators
 RandomIntGenerator	misc/deps/catch2/examples/300-Gen-OwnGenerator.cpp	/^    RandomIntGenerator(int low, int high):$/;"	f	class:RandomIntGenerator	file:
@@ -1967,6 +2005,7 @@ SOURCES_REPORTERS_MAIN	misc/deps/catch2/examples/CMakeLists.txt	/^set( SOURCES_R
 SOURCES_REPORTERS_TESTS	misc/deps/catch2/examples/CMakeLists.txt	/^set( SOURCES_REPORTERS_TESTS$/;"	v
 SOURCES_SINGLE_FILE	misc/deps/catch2/examples/CMakeLists.txt	/^set( SOURCES_SINGLE_FILE$/;"	v
 SRCDIR	Makefile	/^SRCDIR		?= src$/;"	m
+SRCDIR	misc/Makefile	/^SRCDIR		?= src$/;"	m
 STATIC_REQUIRE	misc/deps/catch2/include/catch.hpp	/^#define STATIC_REQUIRE(/;"	d
 STATIC_REQUIRE_FALSE	misc/deps/catch2/include/catch.hpp	/^#define STATIC_REQUIRE_FALSE(/;"	d
 SUCCEED	misc/deps/catch2/include/catch.hpp	/^#define SUCCEED(/;"	d
@@ -2201,13 +2240,23 @@ TEMPLATE_TEST_CASE_METHOD	misc/deps/catch2/include/catch.hpp	/^#define TEMPLATE_
 TEMPLATE_TEST_CASE_METHOD_SIG	misc/deps/catch2/include/catch.hpp	/^#define TEMPLATE_TEST_CASE_METHOD_SIG(/;"	d
 TEMPLATE_TEST_CASE_SIG	misc/deps/catch2/include/catch.hpp	/^#define TEMPLATE_TEST_CASE_SIG(/;"	d
 TEST	Makefile	/^TEST        ?= test$/;"	m
+TEST	misc/Makefile	/^TEST        ?= test$/;"	m
 TESTDF	Makefile	/^TESTDF      ?= $(call replace_ext,o,d,$(TESTOBJ))$/;"	m
+TESTDF	misc/Makefile	/^TESTDF      ?= $(call replace_ext,o,d,$(TESTOBJ))$/;"	m
 TESTDIR	Makefile	/^TESTDIR		:= misc\/tests$/;"	m
 TESTDIR	Makefile	/^TESTDIR     ?= test$/;"	m
+TESTDIR	misc/Makefile	/^TESTDIR		:= misc\/tests$/;"	m
+TESTDIR	misc/Makefile	/^TESTDIR     ?= test$/;"	m
 TESTFLAGS	Makefile	/^TESTFLAGS   ?= $(CXXFLAGS)$/;"	m
 TESTFLAGS	Makefile	/^TESTFLAGS   ?= $(TESTFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
+TESTFLAGS	misc/Makefile	/^TESTFLAGS   ?= $(CXXFLAGS)$/;"	m
+TESTFLAGS	misc/Makefile	/^TESTFLAGS   ?= $(TESTFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)$/;"	m
 TESTOBJ	Makefile	/^TESTOBJ     ?= $(call replace_ext,cpp,o,$(call str_replace,$(TESTSRC),$(TESTDIR),$(BINDIR)\/$(TE/;"	m
-TESTSRC	Makefile	/^TESTSRC     ?=# $(call find_by_ext,$(TESTDIR),cpp)$/;"	m
+TESTOBJ	misc/Makefile	/^TESTOBJ     ?= $(call replace_ext,cpp,o,$(call str_replace,$(TESTSRC),$(TESTDIR),$(BINDIR)\/$(TE/;"	m
+TESTSRC	Makefile	/^TESTSRC		:=$/;"	m
+TESTSRC	Makefile	/^TESTSRC     ?= $(call find_by_ext,$(TESTDIR),cpp)$/;"	m
+TESTSRC	misc/Makefile	/^TESTSRC		:=.\/misc\/tests\/ft_string\/strcpy.cpp\\$/;"	m
+TESTSRC	misc/Makefile	/^TESTSRC     ?= $(call find_by_ext,$(TESTDIR),cpp)$/;"	m
 TESTS_DIR	misc/deps/catch2/projects/ExtraTests/CMakeLists.txt	/^set( TESTS_DIR   ${CATCH_DIR}\/projects\/ExtraTests )$/;"	v
 TEST_CASE	misc/deps/catch2/include/catch.hpp	/^#define TEST_CASE(/;"	d
 TEST_CASE	misc/deps/catch2/projects/SelfTest/UsageTests/VariadicMacros.tests.cpp	/^TEST_CASE()$/;"	f
@@ -2342,6 +2391,8 @@ TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED	misc/deps/catch2/single_include/c
 TWOBLUECUBES_TESTOBJ_H_INCLUDED	misc/deps/catch2/projects/XCode/OCTest/OCTest/TestObj.h	/^#define TWOBLUECUBES_TESTOBJ_H_INCLUDED$/;"	M
 TYPE	Makefile	/^TYPE		:= static$/;"	m
 TYPE	Makefile	/^TYPE        ?= executable$/;"	m
+TYPE	misc/Makefile	/^TYPE		:= static$/;"	m
+TYPE	misc/Makefile	/^TYPE        ?= executable$/;"	m
 T_LOC1	misc/tests/test.hpp	/^#define T_LOC1(/;"	d
 T_LOC2	misc/tests/test.hpp	/^#define T_LOC2(/;"	d
 TablePrinter	misc/deps/catch2/include/reporters/catch_reporter_console.cpp	/^    TablePrinter( std::ostream& os, std::vector<ColumnInfo> columnInfos )$/;"	f	class:Catch::TablePrinter	file:
@@ -2818,6 +2869,7 @@ aligned	misc/tests/ft_memory/memcpy.cpp	/^static void     *aligned(void *p) {$/;
 aligned	misc/tests/ft_memory/memset.cpp	/^static char *aligned(void *p)$/;"	f	typeref:typename:char *	file:
 aligned	misc/tests/ft_string/strchr.cpp	/^static void *aligned(void *p)$/;"	f	typeref:typename:void *	file:
 all	Makefile	/^all:                        $(NAME)$/;"	t
+all	misc/Makefile	/^all:                        $(NAME)$/;"	t
 all	misc/deps/catch2/include/internal/catch_list.cpp	/^    std::string TagInfo::all() const {$/;"	f	class:Catch::TagInfo	typeref:typename:std::string
 allOk	misc/deps/catch2/include/internal/catch_totals.cpp	/^    bool Counts::allOk() const {$/;"	f	class:Catch::Counts	typeref:typename:bool
 allPassed	misc/deps/catch2/include/internal/catch_totals.cpp	/^    bool Counts::allPassed() const {$/;"	f	class:Catch::Counts	typeref:typename:bool
@@ -3018,6 +3070,7 @@ clara	misc/deps/catch2/third_party/clara.hpp	/^namespace clara {$/;"	n
 className	misc/deps/catch2/include/internal/catch_test_case_info.h	/^        std::string className;$/;"	m	struct:Catch::TestCaseInfo	typeref:typename:std::string
 classify_outliers	misc/deps/catch2/include/internal/benchmark/detail/catch_stats.hpp	/^            OutlierClassification classify_outliers(Iterator first, Iterator last) {$/;"	f	namespace:Catch::Benchmark::Detail	typeref:typename:OutlierClassification
 clean	Makefile	/^clean:$/;"	t
+clean	misc/Makefile	/^clean:$/;"	t
 cleanUp	misc/deps/catch2/include/internal/catch_registry_hub.cpp	/^    void cleanUp() {$/;"	f	namespace:Catch	typeref:typename:void
 cleanUpContext	misc/deps/catch2/include/internal/catch_context.cpp	/^    void cleanUpContext() {$/;"	f	namespace:Catch	typeref:typename:void
 cleanupSingletons	misc/deps/catch2/include/internal/catch_singletons.cpp	/^    void cleanupSingletons() {$/;"	f	namespace:Catch	typeref:typename:void
@@ -3405,6 +3458,7 @@ false	inc/ft_bool.h	/^#  define false /;"	d
 falseValue	misc/deps/catch2/projects/SelfTest/UsageTests/Condition.tests.cpp	/^    bool falseValue = false;$/;"	v	namespace:__anon8b7f96210110::ConditionTests	typeref:typename:bool
 fatalErrorEncountered	misc/deps/catch2/include/internal/catch_interfaces_reporter.cpp	/^    void IStreamingReporter::fatalErrorEncountered( StringRef ) {}$/;"	f	class:Catch::IStreamingReporter	typeref:typename:void
 fclean	Makefile	/^fclean:$/;"	t
+fclean	misc/Makefile	/^fclean:$/;"	t
 fdefineRe	misc/deps/catch2/scripts/embed.py	/^fdefineRe = re.compile( r'\\s*#\\s*define\\s*(\\S*)\\s*\\(' ) # #defines that take arguments$/;"	v
 femto_second	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringChrono.tests.cpp	/^    std::chrono::duration<int64_t, std::ratio<1, 1000000000000000>> femto_second(1);$/;"	v	typeref:typename:std::chrono::duration<int64_t,std::ratio<1,1000000000000000>>
 fib	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^    static const int fib[]  = { 1, 1, 2, 3, 5, 8, 13, 21 };$/;"	v	namespace:__anone7dbb1860110::MiscTests	typeref:typename:const int[]	file:
@@ -3424,6 +3478,8 @@ finalizeDescription	misc/deps/catch2/include/internal/catch_matchers_generic.cpp
 find	misc/deps/catch2/include/internal/catch_tag_alias_registry.cpp	/^    TagAlias const* TagAliasRegistry::find( std::string const& alias ) const {$/;"	f	class:Catch::TagAliasRegistry	typeref:typename:TagAlias const *
 findChild	misc/deps/catch2/include/internal/catch_test_case_tracker.cpp	/^    ITrackerPtr TrackerBase::findChild( NameAndLocation const& nameAndLocation ) {$/;"	f	class:Catch::TestCaseTracking::TrackerBase	typeref:typename:ITrackerPtr
 findMax	misc/deps/catch2/include/reporters/catch_reporter_console.cpp	/^std::size_t& findMax(std::size_t& i, std::size_t& j, std::size_t& k) {$/;"	f	namespace:Catch::__anon99a91d3f0110	typeref:typename:std::size_t &
+find_by_ext	Makefile	/^define find_by_ext$/;"	m
+find_by_ext	misc/Makefile	/^define find_by_ext$/;"	m
 finish	misc/deps/catch2/include/internal/benchmark/catch_chronometer.hpp	/^                void finish() override { finished = Clock::now(); }$/;"	f	struct:Catch::Benchmark::Detail::ChronometerModel	typeref:typename:void
 finish	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/InternalBenchmark.tests.cpp	/^        void finish() override { ++finished; }$/;"	f	struct:__anon7f22177c0110::TestChronometerModel	typeref:typename:void	file:
 finished	misc/deps/catch2/include/internal/benchmark/catch_chronometer.hpp	/^                TimePoint<Clock> finished;$/;"	m	struct:Catch::Benchmark::Detail::ChronometerModel	typeref:typename:TimePoint<Clock>
@@ -3468,26 +3524,21 @@ ft_isprint	src/ft_string/ft_isprint.c	/^int         ft_isprint(int c)$/;"	f	type
 ft_isspace	src/ft_string/ft_isspace.c	/^int	ft_isspace(int c)$/;"	f	typeref:typename:int
 ft_isupper	src/ft_string/ft_isupper.c	/^int         ft_isupper(int c)$/;"	f	typeref:typename:int
 ft_itoa	src/ft_string/ft_itoa.c	/^char        *ft_itoa(int n)$/;"	f	typeref:typename:char *
-ft_maxvalue	src/ft_memory/ft_maxint.c	/^unsigned long long   ft_maxvalue(size_t bytes)$/;"	f	typeref:typename:unsigned long long
 ft_memccpy	src/ft_memory/ft_memccpy.c	/^void    *ft_memccpy(void *dest, const void *src, int c, size_t n)$/;"	f	typeref:typename:void *
 ft_memchr	src/ft_memory/ft_memchr.c	/^void    *ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
 ft_memcmp	src/ft_memory/ft_memcmp.c	/^int     ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
 ft_memcpy	src/ft_memory/ft_memcpy.c	/^void    *ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
 ft_memmove	src/ft_memory/ft_memmove.c	/^void    *ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
 ft_memset	src/ft_memory/ft_memset.c	/^void    *ft_memset(void *s, int c, size_t len)$/;"	f	typeref:typename:void *
-ft_min_value	src/ft_memory/ft_maxint.c	/^unsigned long long ft_min_value(size_t bytes)$/;"	f	typeref:typename:unsigned long long
-ft_minvalue	src/ft_memory/ft_maxint.c	/^long long   ft_minvalue(size_t bytes)$/;"	f	typeref:typename:long long
 ft_numlen	src/ft_memory/ft_numlen.c	/^unsigned short     ft_numlen(int n)$/;"	f	typeref:typename:unsigned short
 ft_putchar	src/ft_io/ft_putchar.c	/^void    ft_putchar(char c)$/;"	f	typeref:typename:void
-ft_putchar	src/ft_string/ft_putchar.c	/^void    ft_putchar(char c)$/;"	f	typeref:typename:void
-ft_putchar_fd	src/ft_string/ft_putchar_fd.c	/^void ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putchar_fd	src/ft_io/ft_putchar_fd.c	/^void ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
 ft_putendl	src/ft_io/ft_putendl.c	/^void ft_putendl(char *s)$/;"	f	typeref:typename:void
 ft_putendl_fd	src/ft_io/ft_putendl_fd.c	/^void ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_putnbr	src/ft_io/ft_putnbr.c	/^void ft_putnbr(int n)$/;"	f	typeref:typename:void
 ft_putnbr_fd	src/ft_io/ft_putnbr_fd.c	/^void ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
 ft_putstr	src/ft_io/ft_putstr.c	/^void    ft_putstr(char *s)$/;"	f	typeref:typename:void
 ft_putstr_fd	src/ft_io/ft_putstr_fd.c	/^void ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
-ft_putstr_fd	src/ft_string/ft_putstr_fd.c	/^void ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
 ft_read	src/ft_io/ft_read.c	/^char    *ft_read(char delimiter)$/;"	f	typeref:typename:char *
 ft_read_fd	src/ft_io/ft_read_fd.c	/^char    *ft_read_fd(char delimiter, int fd)$/;"	f	typeref:typename:char *
 ft_realloc	src/ft_memory/ft_realloc.c	/^void    *ft_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
@@ -3923,7 +3974,6 @@ j	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^        a
 j	misc/tests/ft_memory/memcpy.cpp	/^    	int i,j,k;$/;"	v	typeref:typename:int
 j	misc/tests/ft_memory/memset.cpp	/^    int i,j;$/;"	v	typeref:typename:int
 jackknife	misc/deps/catch2/include/internal/benchmark/detail/catch_stats.hpp	/^            sample jackknife(Estimator&& estimator, Iterator first, Iterator last) {$/;"	f	namespace:Catch::Benchmark::Detail	typeref:typename:sample
-join	misc/Makemakefile	/^function join { local IFS="$1"; shift; echo "$*"; }$/;"	f
 just_range	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^struct just_range {$/;"	s	namespace:__anonfad788a70310	file:
 justification	misc/deps/catch2/include/reporters/catch_reporter_console.cpp	/^    Justification justification;$/;"	m	struct:Catch::__anon99a91d3f0110::ColumnInfo	typeref:typename:Justification	file:
 k	misc/deps/catch2/include/internal/benchmark/catch_chronometer.hpp	/^            int k;$/;"	m	struct:Catch::Benchmark::Chronometer	typeref:typename:int
@@ -4390,12 +4440,13 @@ macroName	misc/deps/catch2/include/internal/catch_message.h	/^        StringRef 
 macroName	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef macroName;$/;"	m	struct:Catch::AssertionInfo	typeref:typename:StringRef
 main	misc/deps/catch2/include/internal/catch_default_main.hpp	/^int main (int argc, char * const argv[]) {$/;"	f	typeref:typename:int
 main	misc/deps/catch2/misc/coverage-helper.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
-main	test.c	/^int main()$/;"	f	typeref:typename:int
 main()/ implementation	misc/deps/catch2/docs/configuration.md	/^## main()\/ implementation$/;"	s
 main_file	misc/deps/catch2/scripts/benchmarkCompile.py	/^main_file = r'''$/;"	v
 main_file	misc/deps/catch2/scripts/updateWandbox.py	/^main_file = '''$/;"	v
 main_name	misc/deps/catch2/scripts/benchmarkCompile.py	/^main_name = 'catch-main.cpp'$/;"	v
 majorVersion	misc/deps/catch2/include/internal/catch_version.h	/^        unsigned int const majorVersion;$/;"	m	struct:Catch::Version	typeref:typename:unsigned int const
+make	Makefile	/^make:$/;"	t
+make	misc/Makefile	/^make:$/;"	t
 makeCommandLineParser	misc/deps/catch2/include/internal/catch_commandline.cpp	/^    clara::Parser makeCommandLineParser( ConfigData& config ) {$/;"	f	namespace:Catch	typeref:typename:clara::Parser
 makeEnumInfo	misc/deps/catch2/include/internal/catch_enum_values_registry.cpp	/^        std::unique_ptr<EnumInfo> makeEnumInfo( StringRef enumName, StringRef allValueNames, std/;"	f	namespace:Catch::Detail	typeref:typename:std::unique_ptr<EnumInfo>
 makeGenerators	misc/deps/catch2/include/internal/catch_generators.hpp	/^    auto makeGenerators( GeneratorWrapper<T>&& generator ) -> Generators<T> {$/;"	f	namespace:Catch::Generators	typeref:typename:Generators<T>
@@ -4582,6 +4633,7 @@ normaliseOpt	misc/deps/catch2/third_party/clara.hpp	/^    inline auto normaliseO
 normaliseString	misc/deps/catch2/include/internal/catch_wildcard_pattern.cpp	/^    std::string WildcardPattern::normaliseString( std::string const& str ) const {$/;"	f	class:Catch::WildcardPattern	typeref:typename:std::string
 normalizeFilepath	misc/deps/catch2/scripts/approvalTests.py	/^def normalizeFilepath(line):$/;"	f
 norme	Makefile	/^norme:$/;"	t
+norme	misc/Makefile	/^norme:$/;"	t
 not_this_one	misc/deps/catch2/include/internal/catch_tostring.h	/^    struct not_this_one {}; \/\/ Tag type for detecting which begin\/ end are being selected$/;"	s	namespace:Catch
 not_this_one	misc/deps/catch2/single_include/catch2/catch.hpp	/^    struct not_this_one {}; \/\/ Tag type for detecting which begin\/ end are being selected$/;"	s	namespace:Catch
 now	misc/deps/catch2/include/internal/benchmark/catch_clock.hpp	/^        struct now {$/;"	s	namespace:Catch::Benchmark
@@ -5064,6 +5116,7 @@ rawMemoryToString	misc/deps/catch2/include/internal/catch_tostring.cpp	/^    std
 rawMemoryToString	misc/deps/catch2/include/internal/catch_tostring.h	/^        std::string rawMemoryToString( const T& object ) {$/;"	f	namespace:Catch::Detail	typeref:typename:std::string
 rawMemoryToString	misc/deps/catch2/single_include/catch2/catch.hpp	/^        std::string rawMemoryToString( const T& object ) {$/;"	f	namespace:Catch::Detail	typeref:typename:std::string
 re	Makefile	/^re:$/;"	t
+re	misc/Makefile	/^re:$/;"	t
 re	misc/tests/ft_memory/memccpy.cpp	/^	void *re;$/;"	v	typeref:typename:void *
 readLines	misc/deps/catch2/scripts/updateDocumentToC.py	/^def readLines(in_file):$/;"	f
 readmePath	misc/deps/catch2/scripts/releaseCommon.py	/^readmePath = os.path.join( catchPath, "README.md" )$/;"	v
@@ -5095,6 +5148,7 @@ registerTranslator	misc/deps/catch2/include/internal/catch_exception_translator_
 registerTranslator	misc/deps/catch2/include/internal/catch_registry_hub.cpp	/^            void registerTranslator( const IExceptionTranslator* translator ) override {$/;"	f	class:Catch::__anondaa5e4680110::RegistryHub	typeref:typename:void	file:
 registry	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/Tag.tests.cpp	/^    Catch::TagAliasRegistry registry;$/;"	v	typeref:typename:Catch::TagAliasRegistry
 release	Makefile	/^release:$/;"	t
+release	misc/Makefile	/^release:$/;"	t
 release	misc/deps/catch2/include/internal/catch_stream.cpp	/^        void release( std::size_t index ) {$/;"	f	struct:Catch::StringStreams	typeref:typename:void	file:
 releaseNotesName	misc/deps/catch2/scripts/updateDocumentToC.py	/^releaseNotesName = 'release-notes.md'$/;"	v
 remainingTokens	misc/deps/catch2/include/external/clara.hpp	/^        auto remainingTokens() const -> TokenStream { return m_remainingTokens; }$/;"	f	class:Catch::clara::detail::ParseState	typeref:typename:TokenStream
@@ -5108,6 +5162,7 @@ repeat	misc/deps/catch2/include/internal/catch_generators_generic.hpp	/^    Gene
 repeater	misc/deps/catch2/include/internal/benchmark/detail/catch_repeat.hpp	/^            struct repeater {$/;"	s	namespace:Catch::Benchmark::Detail
 replaceInPlace	misc/deps/catch2/include/internal/catch_string_manip.cpp	/^    bool replaceInPlace( std::string& str, std::string const& replaceThis, std::string const& wi/;"	f	namespace:Catch	typeref:typename:bool
 replace_ext	Makefile	/^define replace_ext$/;"	m
+replace_ext	misc/Makefile	/^define replace_ext$/;"	m
 reportExpr	misc/deps/catch2/include/internal/catch_run_context.cpp	/^    void RunContext::reportExpr($/;"	f	class:Catch::RunContext	typeref:typename:void
 reportFatal	misc/deps/catch2/include/internal/catch_fatal_condition.cpp	/^    void reportFatal( char const * const message ) {$/;"	f	namespace:__anon7fbdb41f0110	typeref:typename:void
 reportInvalidArguments	misc/deps/catch2/include/internal/catch_interfaces_reporter.h	/^        virtual void reportInvalidArguments(std::string const&) {}$/;"	f	struct:Catch::IStreamingReporter	typeref:typename:void
@@ -5445,6 +5500,7 @@ str2	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringGeneral.tests.cpp	/^ 
 str2	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringGeneral.tests.cpp	/^        auto str2 = sm::convert(testFloat);$/;"	v	typeref:typename:auto
 str_hello	misc/deps/catch2/projects/SelfTest/UsageTests/Condition.tests.cpp	/^    std::string str_hello = "hello";$/;"	m	struct:__anon8b7f96210110::ConditionTests::TestData	typeref:typename:std::string	file:
 str_replace	Makefile	/^define str_replace$/;"	m
+str_replace	misc/Makefile	/^define str_replace$/;"	m
 stream	misc/deps/catch2/include/internal/catch_config.cpp	/^    std::ostream& Config::stream() const               { return m_stream->stream(); }$/;"	f	class:Catch::Config	typeref:typename:std::ostream &
 stream	misc/deps/catch2/include/internal/catch_interfaces_reporter.cpp	/^    std::ostream& ReporterConfig::stream() const { return *m_stream; }$/;"	f	class:Catch::ReporterConfig	typeref:typename:std::ostream &
 stream	misc/deps/catch2/include/internal/catch_stream.cpp	/^            std::ostream& stream() const override { return m_os; }$/;"	f	class:Catch::Detail::__anond61e3add0110::CoutStream	typeref:typename:std::ostream &	file:
@@ -5534,6 +5590,7 @@ template	misc/deps/catch2/projects/XCode/OCTest/OCTest/CatchOCTestCase.mm	/^temp
 templated_tests	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^    bool templated_tests(T t) {$/;"	f	namespace:__anonb1aeb3b90110::CompilationTests	typeref:typename:bool
 temporary	misc/deps/catch2/projects/ExtraTests/X02-DisabledMacros.cpp	/^static Catch::ReporterRegistrar<Catch::ConsoleReporter> temporary( "console" );$/;"	v	typeref:typename:Catch::ReporterRegistrar<Catch::ConsoleReporter>	file:
 test	Makefile	/^test:                                           $(COBJ) $(CXXOBJ) $(TESTOBJ)$/;"	t
+test	misc/Makefile	/^test:                                           $(COBJ) $(CXXOBJ) $(TESTOBJ)$/;"	t
 test	misc/deps/catch2/.conan/test_package/conanfile.py	/^    def test(self):$/;"	m	class:TestPackageConan
 test	misc/deps/catch2/contrib/CatchAddTests.cmake	/^  set(test ${line})$/;"	v
 test	misc/deps/catch2/include/internal/catch_test_case_info.h	/^        std::shared_ptr<ITestInvoker> test;$/;"	m	class:Catch::TestCase	typeref:typename:std::shared_ptr<ITestInvoker>
@@ -5855,7 +5912,9 @@ warnAboutMissingAssertions	misc/deps/catch2/include/internal/catch_config.cpp	/^
 warnAboutNoTests	misc/deps/catch2/include/internal/catch_config.cpp	/^    bool Config::warnAboutNoTests() const              { return !!(m_data.warnings & WarnAbout::/;"	f	class:Catch::Config	typeref:typename:bool
 warnings	misc/deps/catch2/include/internal/catch_config.hpp	/^        WarnAbout::What warnings = WarnAbout::Nothing;$/;"	m	struct:Catch::ConfigData	typeref:typename:WarnAbout::What
 watch-compile	Makefile	/^watch-compile:$/;"	t
+watch-compile	misc/Makefile	/^watch-compile:$/;"	t
 watch-test	Makefile	/^watch-test:$/;"	t
+watch-test	misc/Makefile	/^watch-test:$/;"	t
 weighted_average_quantile	misc/deps/catch2/include/internal/benchmark/detail/catch_stats.cpp	/^            double weighted_average_quantile(int k, int q, std::vector<double>::iterator first, /;"	f	namespace:Catch::Benchmark::Detail	typeref:typename:double
 what	misc/deps/catch2/include/internal/benchmark/detail/catch_run_for_at_least.hpp	/^                const char* what() const noexcept override {$/;"	f	struct:Catch::Benchmark::Detail::optimized_away_error	typeref:typename:const char *
 what	misc/deps/catch2/include/internal/catch_generators.cpp	/^const char* GeneratorException::what() const noexcept {$/;"	f	class:Catch::GeneratorException	typeref:typename:const char *

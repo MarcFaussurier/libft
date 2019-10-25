@@ -2,5 +2,5 @@
 
 void    ft_putchar(char c)
 {
-    ft_putchar_fd(STDIN_FILENO, c);
+    ft_putchar_fd(c, STDIN_FILENO);
 }
