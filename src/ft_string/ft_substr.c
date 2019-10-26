@@ -6,11 +6,15 @@ char        *ft_substr(char const *s, unsigned int start, size_t len)
     unsigned int    i;
     size_t          real_len;
 
+    if (!s)
+        return (NULL);
     i = -1;
     real_len = 0;
     while (s[++i])
         if (i >= start)
             real_len += 1;
+    if (real_len <= 0)
+        return (ft_calloc(sizeof(char), 1));
     real_len = real_len > len ? len : real_len;
     out = malloc ((real_len + 1) * sizeof(char));
     if (!out)

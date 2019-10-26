@@ -3,12 +3,17 @@
 
 void ft_lstclear(t_list **lst, void (*del)(void*))
 {
+    t_list      **s;
+
+    s = lst;
     if (!*lst)
         return ;
-    while ((*lst)->next)
+    while (1)
     {
         ft_lstdelone(*lst, del);
-        *lst = (*lst)->next;
+        if (!(*lst = (*lst)->next))
+            break;
     }
+    free(*s);
     *lst = NULL;
 }

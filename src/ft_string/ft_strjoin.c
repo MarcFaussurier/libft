@@ -6,6 +6,9 @@ char *ft_strjoin(char const *s1, char const *s2)
     char            *out;
     unsigned int    i;
     unsigned int    y;
+
+    if (!s1)
+        return (NULL);
     final = ft_strlen(s1) + ft_strlen(s2) + 1;
     out = malloc(final * sizeof(char));
     if (!out)

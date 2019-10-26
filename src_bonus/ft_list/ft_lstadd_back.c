@@ -3,9 +3,15 @@
 
 void ft_lstadd_back(t_list **alst, t_list *new)
 {
-    if (!*alst)
+    t_list  *list;
+    if (!new)
+        return;
+    else if (!*alst)
         *alst = new;
     else
-        (ft_lstlast(*alst))->next = new;
+    {
+        list = ft_lstlast(*alst);
+		list->next = new;
+    }
 }
 

@@ -8,6 +8,8 @@ char        *ft_itoa(int n)
     char            *out;
     t_bool          isn;
 
+    if (n == 0)
+        return ft_strdup("0");
     numlen = ft_numlen(n);
     out = malloc(sizeof(char) * (numlen + 1 ));
     if (!out)

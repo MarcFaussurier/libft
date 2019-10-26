@@ -4,12 +4,14 @@
 
 t_list      *ft_lstlast(t_list *lst)
 {
-    unsigned int     i;
+    t_list *tmp;
 
     if (!lst)
         return (lst);
-    i = 0;
-    while ((lst + i)->next != NULL)
-        i += 1;
-    return (lst + i);
+    tmp = lst;
+    while (tmp->next)
+    {
+        tmp = tmp->next;
+    }
+    return (tmp);
 }

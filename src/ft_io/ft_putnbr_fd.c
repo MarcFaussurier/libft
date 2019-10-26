@@ -2,8 +2,11 @@
 
 void ft_putnbr_fd(int n, int fd)
 {
-    if (n == 0)
-        return ;
+    if (n < -2147483647)
+    {
+        ft_putstr_fd("-2147483648", fd);
+        return;
+    }
     else if (n < 0 && (n = -n))
         ft_putchar_fd('-', fd);
     if (n >= 10)

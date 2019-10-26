@@ -3610,7 +3610,7 @@ ft_putstr_fd	src/ft_io/ft_putstr_fd.c	/^void ft_putstr_fd(char *s, int fd)$/;"	f
 ft_read	src/ft_io/ft_read.c	/^char    *ft_read(char delimiter)$/;"	f	typeref:typename:char *
 ft_read_fd	src/ft_io/ft_read_fd.c	/^char    *ft_read_fd(char delimiter, int fd)$/;"	f	typeref:typename:char *
 ft_realloc	src/ft_memory/ft_realloc.c	/^void    *ft_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
-ft_split	src/ft_string/ft_split.c	/^char            **ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
+ft_split	src/ft_string/ft_split.c	/^char            **ft_split(char const *s, char d)$/;"	f	typeref:typename:char **
 ft_strchr	src/ft_string/ft_strchr.c	/^char        *ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
 ft_strcpy	src/ft_string/ft_strcpy.c	/^char        *ft_strcpy(char *dst, const char *src)$/;"	f	typeref:typename:char *
 ft_strdup	src/ft_string/ft_strdup.c	/^char    *ft_strdup(const char *src)$/;"	f	typeref:typename:char *
