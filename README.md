@@ -2,23 +2,29 @@
 
 A basic repo I made so that I will spend less time in creating my next projects.
 
-## Get started
-
-1) git clone https://github.com/MarcFaussurier/C-CPP-starter.git yourproject
-2) cd yourproject && make install
-
 ## Comands
 
-- make
-- make test 
-- make watch-compile 
-- make watch-test 
-- make clean
-- make fclean
-- make norme
+make update
 
-## Before pushing "la moulinette" dont forget to delete the .misc repo
-- make release
+make
+
+make test
+
+make run
+
+make watch
+
+make watch-test
+
+make watch-run
+
+make clean
+
+make fclean
+
+make release
+
+make norme
 
 ## Credits
 - https://github.com/Keyoung-n/C-Library/blob/master/testfile.c
