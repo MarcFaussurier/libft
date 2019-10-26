@@ -3583,6 +3583,15 @@ ft_isprint	src/ft_string/ft_isprint.c	/^int         ft_isprint(int c)$/;"	f	type
 ft_isspace	src/ft_string/ft_isspace.c	/^int	ft_isspace(int c)$/;"	f	typeref:typename:int
 ft_isupper	src/ft_string/ft_isupper.c	/^int         ft_isupper(int c)$/;"	f	typeref:typename:int
 ft_itoa	src/ft_string/ft_itoa.c	/^char        *ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_lstadd_back	src_bonus/ft_list/ft_lstadd_back.c	/^void ft_lstadd_back(t_list **alst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstadd_front	src_bonus/ft_list/ft_lstadd_front.c	/^void ft_lstadd_front(t_list **alst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstclear	src_bonus/ft_list/ft_lstclear.c	/^void ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstdelone	src_bonus/ft_list/ft_lstdelone.c	/^void ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstiter	src_bonus/ft_list/ft_lstiter.c	/^void ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
+ft_lstlast	src_bonus/ft_list/ft_lstlast.c	/^t_list      *ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
+ft_lstmap	src_bonus/ft_list/ft_lstmap.c	/^t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
+ft_lstnew	src_bonus/ft_list/ft_lstnew.c	/^t_list *ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
+ft_lstsize	src_bonus/ft_list/ft_lstsize.c	/^int     ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
 ft_memccpy	src/ft_memory/ft_memccpy.c	/^void    *ft_memccpy(void *dest, const void *src, int c, size_t n)$/;"	f	typeref:typename:void *
 ft_memchr	src/ft_memory/ft_memchr.c	/^void    *ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
 ft_memcmp	src/ft_memory/ft_memcmp.c	/^int     ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
