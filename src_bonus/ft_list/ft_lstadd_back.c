@@ -3,9 +3,7 @@
 
 void ft_lstadd_back(t_list **alst, t_list *new)
 {
-    unsigned int    alst_size;
-
-    if (*alst == NULL)
+    if (!*alst)
         *alst = new;
     else
         (ft_lstlast(*alst))->next = new;

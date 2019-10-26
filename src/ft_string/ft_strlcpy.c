@@ -5,7 +5,9 @@ size_t      ft_strlcpy(char *dest, const char *src, size_t len)
     char            *d;
 	const char      *s;
 	size_t          n;
-	
+
+    if (!dest && !src)
+        return (0);
     d = dest;
     s = src;
     n = len;

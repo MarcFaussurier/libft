@@ -8,6 +8,7 @@
 $(BINDIR)/$(TESTDIR)/%.o	Makefile	/^$(BINDIR)\/$(TESTDIR)\/%.o:	$(TESTDIR)\/%.cpp$/;"	t
 $(BINDIR)/$(TESTDIR)/%.o	misc/Makefile	/^$(BINDIR)\/$(TESTDIR)\/%.o:	$(TESTDIR)\/%.cpp$/;"	t
 $(BINDIR)/$(TESTDIR)/%.o	misc/deps/ezbuild/Makefile	/^$(BINDIR)\/$(TESTDIR)\/%.o:	$(TESTDIR)\/%.cpp$/;"	t
+$(BINDIR)/%.o	Makefile	/^$(BINDIR)\/%.o:				$(BONUSDIR)\/%.c$/;"	t
 $(BINDIR)/%.o	Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.c$/;"	t
 $(BINDIR)/%.o	Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.cpp$/;"	t
 $(BINDIR)/%.o	misc/Makefile	/^$(BINDIR)\/%.o:				$(SRCDIR)\/%.c$/;"	t
@@ -51,6 +52,7 @@ $(NAME)	misc/deps/ezbuild/Makefile	/^$(NAME):                                   
 2.1.2	misc/deps/catch2/docs/release-notes.md	/^## 2.1.2$/;"	s
 2.10.0	misc/deps/catch2/docs/release-notes.md	/^## 2.10.0$/;"	s
 2.10.1	misc/deps/catch2/docs/release-notes.md	/^## 2.10.1$/;"	s
+2.10.2	misc/deps/catch2/docs/release-notes.md	/^## 2.10.2$/;"	s
 2.2.0	misc/deps/catch2/docs/release-notes.md	/^## 2.2.0$/;"	s
 2.2.1	misc/deps/catch2/docs/release-notes.md	/^## 2.2.1$/;"	s
 2.2.2	misc/deps/catch2/docs/release-notes.md	/^## 2.2.2$/;"	s
@@ -162,6 +164,9 @@ BENCHMARK_SOURCES	misc/deps/catch2/projects/CMakeLists.txt	/^set(BENCHMARK_SOURC
 BINDIR	Makefile	/^BINDIR      ?= bin$/;"	m
 BINDIR	misc/Makefile	/^BINDIR      ?= bin$/;"	m
 BINDIR	misc/deps/ezbuild/Makefile	/^BINDIR      ?= bin$/;"	m
+BONUSDIR	Makefile	/^BONUSDIR	:= src_bonus$/;"	m
+BONUSOBJ	Makefile	/^BONUSOBJ    ?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))$/;"	m
+BONUSSRC	Makefile	/^BONUSSRC		:=.\/misc\/tests\/ft_string\/strcpy.cpp\\$/;"	m
 BUFFER	misc/deps/catch2/CMake/FindGcov.cmake	/^	set(BUFFER "")$/;"	v	function:add_gcov_target
 Bar	misc/deps/catch2/projects/SelfTest/UsageTests/Misc.tests.cpp	/^struct Bar {$/;"	s	namespace:__anone7dbb1860110::MiscTests	file:
 BasicResult	misc/deps/catch2/include/external/clara.hpp	/^        BasicResult( ResultBase::Type type, std::string const &message )$/;"	f	class:Catch::clara::detail::BasicResult
@@ -170,7 +175,6 @@ BasicResult	misc/deps/catch2/include/external/clara.hpp	/^    class BasicResult 
 BasicResult	misc/deps/catch2/third_party/clara.hpp	/^        BasicResult( ResultBase::Type type, std::string const &message )$/;"	f	class:clara::detail::BasicResult
 BasicResult	misc/deps/catch2/third_party/clara.hpp	/^        explicit BasicResult( BasicResult<U> const &other )$/;"	f	class:clara::detail::BasicResult
 BasicResult	misc/deps/catch2/third_party/clara.hpp	/^    class BasicResult : public ResultValueBase<T> {$/;"	c	namespace:clara::detail
-Before pushing "la moulinette" dont forget to delete the .misc repo	README.md	/^## Before pushing "la moulinette" dont forget to delete the .misc repo$/;"	s
 BeforeExit	misc/deps/catch2/include/internal/catch_interfaces_config.h	/^        BeforeExit = 2,$/;"	e	enum:Catch::WaitForKeypress::When
 BeforeStart	misc/deps/catch2/include/internal/catch_interfaces_config.h	/^        BeforeStart = 1,$/;"	e	enum:Catch::WaitForKeypress::When
 BeforeStartAndExit	misc/deps/catch2/include/internal/catch_interfaces_config.h	/^        BeforeStartAndExit = BeforeStart | BeforeExit$/;"	e	enum:Catch::WaitForKeypress::When
@@ -902,7 +906,6 @@ Catch	misc/deps/catch2/include/reporters/catch_reporter_teamcity.hpp	/^namespace
 Catch	misc/deps/catch2/include/reporters/catch_reporter_xml.cpp	/^namespace Catch {$/;"	n	file:
 Catch	misc/deps/catch2/include/reporters/catch_reporter_xml.h	/^namespace Catch {$/;"	n
 Catch	misc/deps/catch2/projects/ExtraTests/X04-DisabledExceptions-CustomHandler.cpp	/^namespace Catch {$/;"	n	file:
-Catch	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^namespace Catch {$/;"	n	file:
 Catch	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringGeneral.tests.cpp	/^namespace Catch {$/;"	n	file:
 Catch	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^namespace Catch {$/;"	n	file:
 Catch	misc/deps/catch2/single_include/catch2/catch.hpp	/^namespace Catch {$/;"	n
@@ -910,7 +913,7 @@ Catch	misc/deps/catch2/single_include/catch2/catch_reporter_automake.hpp	/^names
 Catch	misc/deps/catch2/single_include/catch2/catch_reporter_tap.hpp	/^namespace Catch {$/;"	n
 Catch	misc/deps/catch2/single_include/catch2/catch_reporter_teamcity.hpp	/^namespace Catch {$/;"	n
 Catch2	misc/deps/catch2/CMakeLists.txt	/^add_library(Catch2 INTERFACE)$/;"	t
-Catch2	misc/deps/catch2/CMakeLists.txt	/^project(Catch2 LANGUAGES CXX VERSION 2.10.1)$/;"	p
+Catch2	misc/deps/catch2/CMakeLists.txt	/^project(Catch2 LANGUAGES CXX VERSION 2.10.2)$/;"	p
 Catch2 is released!	misc/deps/catch2/README.md	/^## Catch2 is released!$/;"	s
 Catch2ExtraTests	misc/deps/catch2/projects/ExtraTests/CMakeLists.txt	/^project( Catch2ExtraTests LANGUAGES CXX )$/;"	p
 Catch::StringMaker specialisation	misc/deps/catch2/docs/tostring.md	/^## Catch::StringMaker specialisation$/;"	s
@@ -1294,7 +1297,6 @@ Generators	misc/deps/catch2/include/internal/catch_interfaces_generatortracker.h
 Generators	misc/deps/catch2/include/internal/catch_run_context.cpp	/^    namespace Generators {$/;"	n	namespace:Catch	file:
 Generic	misc/deps/catch2/include/internal/catch_matchers_generic.hpp	/^namespace Generic {$/;"	n	namespace:Catch::Matchers
 Generic matchers	misc/deps/catch2/docs/matchers.md	/^### Generic matchers$/;"	S
-Get started	README.md	/^## Get started$/;"	s
 Getting Catch2	misc/deps/catch2/docs/tutorial.md	/^## Getting Catch2$/;"	s
 GitHub Issues	misc/deps/catch2/.github/pull_request_template.md	/^## GitHub Issues$/;"	s
 Green	misc/deps/catch2/include/internal/catch_console_colour.h	/^            Green,$/;"	e	enum:Catch::Colour::Code
@@ -2230,11 +2232,8 @@ StringMatcher	misc/deps/catch2/include/internal/catch_capture_matchers.h	/^    u
 StringMatcherBase	misc/deps/catch2/include/internal/catch_matchers_string.cpp	/^        StringMatcherBase::StringMatcherBase( std::string const& operation, CasedString const& c/;"	f	class:Catch::Matchers::StdString::StringMatcherBase
 StringMatcherBase	misc/deps/catch2/include/internal/catch_matchers_string.h	/^        struct StringMatcherBase : MatcherBase<std::string> {$/;"	s	namespace:Catch::Matchers::StdString
 StringRef	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    StringRef::StringRef( char const* rawChars ) noexcept$/;"	f	class:Catch::StringRef
-StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        StringRef( StringRef const& other ) noexcept$/;"	f	class:Catch::StringRef
-StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        StringRef( StringRef&& other ) noexcept$/;"	f	class:Catch::StringRef
-StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        StringRef( char const* rawChars, size_type size ) noexcept$/;"	f	class:Catch::StringRef
 StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        StringRef( std::string const& stdString ) noexcept$/;"	f	class:Catch::StringRef
-StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        StringRef() noexcept$/;"	f	class:Catch::StringRef
+StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr StringRef( char const* rawChars, size_type size ) noexcept$/;"	f	class:Catch::StringRef
 StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^    class StringRef {$/;"	c	namespace:Catch
 StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef( StringRef const& other ) noexcept$/;"	f	class:Catch::StringRef
 StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef( StringRef&& other ) noexcept$/;"	f	class:Catch::StringRef
@@ -2242,7 +2241,6 @@ StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef( 
 StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef( std::string const& stdString ) noexcept$/;"	f	class:Catch::StringRef
 StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        StringRef() noexcept$/;"	f	class:Catch::StringRef
 StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^    class StringRef {$/;"	c	namespace:Catch
-StringRefTestAccess	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^    struct StringRefTestAccess {$/;"	s	namespace:Catch	file:
 StringStreams	misc/deps/catch2/include/internal/catch_stream.cpp	/^    struct StringStreams {$/;"	s	namespace:Catch	file:
 StrongDoubleTypedef	misc/deps/catch2/projects/SelfTest/UsageTests/Approx.tests.cpp	/^        explicit StrongDoubleTypedef(double d) : d_(d) {}$/;"	f	class:__anon0cb4e5740110::ApproxTests::StrongDoubleTypedef	file:
 StrongDoubleTypedef	misc/deps/catch2/projects/SelfTest/UsageTests/Approx.tests.cpp	/^    class StrongDoubleTypedef {$/;"	c	namespace:__anon0cb4e5740110::ApproxTests	file:
@@ -2440,7 +2438,7 @@ TWOBLUECUBES_CATCH_WITH_MAIN_HPP_INCLUDED	misc/deps/catch2/include/catch_with_ma
 TWOBLUECUBES_CATCH_XMLWRITER_HPP_INCLUDED	misc/deps/catch2/include/internal/catch_xmlwriter.h	/^#define TWOBLUECUBES_CATCH_XMLWRITER_HPP_INCLUDED$/;"	d
 TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED	misc/deps/catch2/single_include/catch2/catch.hpp	/^#define TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED$/;"	d
 TWOBLUECUBES_TESTOBJ_H_INCLUDED	misc/deps/catch2/projects/XCode/OCTest/OCTest/TestObj.h	/^#define TWOBLUECUBES_TESTOBJ_H_INCLUDED$/;"	M
-TYPE	Makefile	/^TYPE		:= static$/;"	m
+TYPE	Makefile	/^TYPE		:= share$/;"	m
 TYPE	Makefile	/^TYPE        ?= executable$/;"	m
 TYPE	misc/Makefile	/^TYPE		:= static$/;"	m
 TYPE	misc/Makefile	/^TYPE        ?= executable$/;"	m
@@ -2793,7 +2791,6 @@ __anon7fbdb41f0110	misc/deps/catch2/include/internal/catch_fatal_condition.cpp	/
 __anon7fc805e90110	misc/deps/catch2/projects/SelfTest/UsageTests/Exception.tests.cpp	/^namespace { namespace ExceptionTests {$/;"	n	file:
 __anon8b7f96210110	misc/deps/catch2/projects/SelfTest/UsageTests/Condition.tests.cpp	/^namespace { namespace ConditionTests {$/;"	n	file:
 __anon8bbeb4870110	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringVector.tests.cpp	/^namespace {$/;"	n	file:
-__anon8c53414b0110	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^    namespace {$/;"	n	namespace:Catch	file:
 __anon92f7f4560102	misc/deps/catch2/include/internal/catch_message.cpp	/^        auto trimmed = [&] (size_t start, size_t end) {$/;"	f	function:Catch::Capturer::Capturer	file:
 __anon92f7f4560202	misc/deps/catch2/include/internal/catch_message.cpp	/^        auto skipq = [&] (size_t start, char quote) {$/;"	f	function:Catch::Capturer::Capturer	file:
 __anon93dc02b70110	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/PartTracker.tests.cpp	/^namespace {$/;"	n	file:
@@ -3014,7 +3011,7 @@ bar	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^namesp
 base_cmd	misc/deps/catch2/misc/appveyorMergeCoverageScript.py	/^    base_cmd = ['OpenCppCoverage', '--quiet', '--export_type=cobertura:cobertura.xml'] + ['--inp/;"	v
 begin	misc/deps/catch2/include/external/clara.hpp	/^	auto begin() const -> iterator { return iterator(*this); }$/;"	f	class:Catch::clara::TextFlow::Column	typeref:typename:iterator
 begin	misc/deps/catch2/include/external/clara.hpp	/^	auto begin() const -> iterator { return iterator(*this); }$/;"	f	class:Catch::clara::TextFlow::Columns	typeref:typename:iterator
-begin	misc/deps/catch2/include/internal/catch_stringref.h	/^        const_iterator begin() const { return m_start; }$/;"	f	class:Catch::StringRef	typeref:typename:const_iterator
+begin	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr const_iterator begin() const { return m_start; }$/;"	f	class:Catch::StringRef	typeref:typename:const_iterator
 begin	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    int_iterator begin() const { return int_iterator{ 1 }; }$/;"	f	struct:__anonfad788a70210::streamable_range	typeref:typename:int_iterator	file:
 begin	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    int_iterator begin() const { return int_iterator{ 1 }; }$/;"	f	struct:__anonfad788a70210::stringmaker_range	typeref:typename:int_iterator	file:
 begin	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    int_iterator begin() const { return int_iterator{ 1 }; }$/;"	f	struct:__anonfad788a70310::disabled_range	typeref:typename:int_iterator	file:
@@ -3062,6 +3059,7 @@ bit3	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        bi
 bit30	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        bit30 = 0x40000000,$/;"	e	enum:EnumBitFieldTests::Bits	file:
 bit30and31	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        bit30and31 = bit30 | bit31$/;"	e	enum:EnumBitFieldTests::Bits	file:
 bit31	misc/deps/catch2/projects/SelfTest/UsageTests/Tricky.tests.cpp	/^        bit31 = 0x80000000,$/;"	e	enum:EnumBitFieldTests::Bits	file:
+bonus	Makefile	/^bonus:	$(COBJ) $(BONUSOBJ)$/;"	t
 bools	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringVector.tests.cpp	/^    std::vector<bool> bools;$/;"	v	typeref:typename:std::vector<bool>
 bootstrap	misc/deps/catch2/include/internal/benchmark/detail/catch_stats.hpp	/^            Estimate<double> bootstrap(double confidence_level, Iterator first, Iterator last, s/;"	f	namespace:Catch::Benchmark::Detail	typeref:typename:Estimate<double>
 bootstrap_analysis	misc/deps/catch2/include/internal/benchmark/detail/catch_stats.hpp	/^            struct bootstrap_analysis {$/;"	s	namespace:Catch::Benchmark::Detail
@@ -3072,6 +3070,8 @@ buf	misc/tests/ft_memory/memcpy.cpp	/^static char     buf[512];$/;"	v	typeref:ty
 buf	misc/tests/ft_memory/memset.cpp	/^static char buf[N];$/;"	v	typeref:typename:char[]	file:
 buf	misc/tests/ft_string/strchr.cpp	/^static char buf[512];$/;"	v	typeref:typename:char[512]	file:
 buf2	misc/tests/ft_memory/memset.cpp	/^static char buf2[N];$/;"	v	typeref:typename:char[]	file:
+buffer1	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        char buffer1[] = "Hello";$/;"	v	typeref:typename:char[]
+buffer2	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        char buffer2[] = "Hello";$/;"	v	typeref:typename:char[]
 build	misc/deps/catch2/.conan/test_package/conanfile.py	/^    def build(self):$/;"	m	class:TestPackageConan
 buildMarkdown	misc/deps/catch2/scripts/updateDocumentToC.py	/^def buildMarkdown(toc_headlines, body, spacer=0, placeholder=None):$/;"	f
 buildNumber	misc/deps/catch2/include/internal/catch_version.h	/^        unsigned int const buildNumber;$/;"	m	struct:Catch::Version	typeref:typename:unsigned int const
@@ -3308,7 +3308,6 @@ ctest_tests_file	misc/deps/catch2/contrib/Catch.cmake	/^  set(ctest_tests_file "
 ctx	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/PartTracker.tests.cpp	/^    TrackerContext ctx;$/;"	v	typeref:typename:TrackerContext
 currentContext	misc/deps/catch2/include/internal/catch_context.cpp	/^    IMutableContext *IMutableContext::currentContext = nullptr;$/;"	m	class:Catch::IMutableContext	typeref:typename:IMutableContext *
 currentContext	misc/deps/catch2/include/internal/catch_context.h	/^        static IMutableContext *currentContext;$/;"	m	struct:Catch::IMutableContext	typeref:typename:IMutableContext *
-currentData	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    auto StringRef::currentData() const noexcept -> char const* {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 currentGroupInfo	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^        LazyStat<GroupInfo> currentGroupInfo;$/;"	m	struct:Catch::StreamingReporterBase	typeref:typename:LazyStat<GroupInfo>
 currentTestCaseInfo	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^        LazyStat<TestCaseInfo> currentTestCaseInfo;$/;"	m	struct:Catch::StreamingReporterBase	typeref:typename:LazyStat<TestCaseInfo>
 currentTestRunInfo	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^        LazyStat<TestRunInfo> currentTestRunInfo;$/;"	m	struct:Catch::StreamingReporterBase	typeref:typename:LazyStat<TestRunInfo>
@@ -3328,6 +3327,7 @@ dashed_line	misc/deps/catch2/examples/210-Evt-EventListeners.cpp	/^char const * 
 dashifyHeadline	misc/deps/catch2/scripts/updateDocumentToC.py	/^def dashifyHeadline(line):$/;"	f
 data	misc/deps/catch2/include/internal/benchmark/catch_constructor.hpp	/^            TStorage data;$/;"	m	struct:Catch::Detail::ObjectStorage	typeref:typename:TStorage
 data	misc/deps/catch2/include/internal/catch_stream.cpp	/^            char data[bufferSize];$/;"	m	class:Catch::Detail::__anond61e3add0110::StreamBufImpl	typeref:typename:char[]	file:
+data	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    auto StringRef::data() const noexcept -> char const* {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 data	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/InternalBenchmark.tests.cpp	/^    Catch::ConfigData data{};$/;"	v	typeref:typename:Catch::ConfigData
 data	misc/deps/catch2/projects/SelfTest/UsageTests/Condition.tests.cpp	/^    TestData data;$/;"	v	namespace:__anon8b7f96210110::ConditionTests	typeref:typename:TestData
 data	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^        static auto data = make_data();$/;"	v	typeref:typename:auto	file:
@@ -3416,7 +3416,7 @@ elem	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^      
 elseRe	misc/deps/catch2/scripts/embed.py	/^elseRe = re.compile( r'\\s*#\\s*else' )$/;"	v
 emplaceUnscopedMessage	misc/deps/catch2/include/internal/catch_run_context.cpp	/^    void RunContext::emplaceUnscopedMessage( MessageBuilder const& builder ) {$/;"	f	class:Catch::RunContext	typeref:typename:void
 empty	misc/deps/catch2/include/internal/catch_common.h	/^        bool empty() const noexcept { return file[0] == '\\0'; }$/;"	f	struct:Catch::SourceLineInfo	typeref:typename:bool
-empty	misc/deps/catch2/include/internal/catch_stringref.h	/^        auto empty() const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
+empty	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr auto empty() const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 empty	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        StringRef empty;$/;"	v	typeref:typename:StringRef
 empty	misc/deps/catch2/projects/SelfTest/UsageTests/Matchers.tests.cpp	/^                std::vector<double> empty, t1({1, 2});$/;"	v	namespace:__anon96897c110110::MatchersTests	typeref:typename:std::vector<double>
 empty	misc/deps/catch2/projects/SelfTest/UsageTests/Matchers.tests.cpp	/^                std::vector<double> empty;$/;"	v	namespace:__anon96897c110110::MatchersTests	typeref:typename:std::vector<double>
@@ -3432,7 +3432,7 @@ encode	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/Xml.tests.cpp	/^inl
 encodeTo	misc/deps/catch2/include/internal/catch_xmlwriter.cpp	/^    void XmlEncode::encodeTo( std::ostream& os ) const {$/;"	f	class:Catch::XmlEncode	typeref:typename:void
 end	misc/deps/catch2/include/external/clara.hpp	/^	auto end() const -> iterator { return { *this, iterator::EndTag() }; }$/;"	f	class:Catch::clara::TextFlow::Columns	typeref:typename:iterator
 end	misc/deps/catch2/include/external/clara.hpp	/^	auto end() const -> iterator { return { *this, m_strings.size() }; }$/;"	f	class:Catch::clara::TextFlow::Column	typeref:typename:iterator
-end	misc/deps/catch2/include/internal/catch_stringref.h	/^        const_iterator end() const { return m_start + m_size; }$/;"	f	class:Catch::StringRef	typeref:typename:const_iterator
+end	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr const_iterator end() const { return m_start + m_size; }$/;"	f	class:Catch::StringRef	typeref:typename:const_iterator
 end	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/InternalBenchmark.tests.cpp	/^    auto end = counting_clock::now();$/;"	v	typeref:typename:auto
 end	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    int_iterator end() const { return {}; }$/;"	f	struct:__anonfad788a70210::streamable_range	typeref:typename:int_iterator	file:
 end	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    int_iterator end() const { return {}; }$/;"	f	struct:__anonfad788a70210::stringmaker_range	typeref:typename:int_iterator	file:
@@ -3596,7 +3596,7 @@ ft_memccpy	src/ft_memory/ft_memccpy.c	/^void    *ft_memccpy(void *dest, const vo
 ft_memchr	src/ft_memory/ft_memchr.c	/^void    *ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
 ft_memcmp	src/ft_memory/ft_memcmp.c	/^int     ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
 ft_memcpy	src/ft_memory/ft_memcpy.c	/^void    *ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
-ft_memmove	src/ft_memory/ft_memmove.c	/^void    *ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memmove	src/ft_memory/ft_memmove.c	/^void    *ft_memmove(void *dst, const void *src, size_t n)$/;"	f	typeref:typename:void *
 ft_memset	src/ft_memory/ft_memset.c	/^void    *ft_memset(void *s, int c, size_t len)$/;"	f	typeref:typename:void *
 ft_numlen	src/ft_memory/ft_numlen.c	/^unsigned short     ft_numlen(int n)$/;"	f	typeref:typename:unsigned short
 ft_putchar	src/ft_io/ft_putchar.c	/^void    ft_putchar(char c)$/;"	f	typeref:typename:void
@@ -3621,7 +3621,7 @@ ft_strlen	src/ft_string/ft_strlen.c	/^size_t		ft_strlen(const char *s)$/;"	f	typ
 ft_strmapi	src/ft_string/ft_strmapi.c	/^char    *ft_strmapi(const char *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
 ft_strncmp	src/ft_string/ft_strncmp.c	/^int         ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f	typeref:typename:int
 ft_strnlen	src/ft_string/ft_strnlen.c	/^size_t		ft_strnlen(const char *s, size_t maxlen)$/;"	f	typeref:typename:size_t
-ft_strnstr	src/ft_string/ft_strnstr.c	/^char    *ft_strnstr(const char *haystack, const char *needle, size_t slen)$/;"	f	typeref:typename:char *
+ft_strnstr	src/ft_string/ft_strnstr.c	/^char    *ft_strnstr(const char *haystack, const char *needle, size_t len)$/;"	f	typeref:typename:char *
 ft_strrchr	src/ft_string/ft_strrchr.c	/^char        *ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
 ft_strtrim	src/ft_string/ft_strtrim.c	/^char                *ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
 ft_strtrim_begin	src/ft_string/ft_trim_begin.c	/^char         *ft_strtrim_begin(char const *s1, char const *set)$/;"	f	typeref:typename:char *
@@ -3950,6 +3950,7 @@ isMatch	misc/deps/catch2/include/external/clara.hpp	/^        auto isMatch( std:
 isMatch	misc/deps/catch2/third_party/clara.hpp	/^        auto isMatch( std::string const &optToken ) const -> bool {$/;"	f	class:clara::detail::Opt	typeref:typename:bool
 isMulti	misc/deps/catch2/include/internal/catch_interfaces_reporter.cpp	/^    bool IStreamingReporter::isMulti() const { return false; }$/;"	f	class:Catch::IStreamingReporter	typeref:typename:bool
 isMulti	misc/deps/catch2/include/reporters/catch_reporter_listening.cpp	/^    bool ListeningReporter::isMulti() const {$/;"	f	class:Catch::ListeningReporter	typeref:typename:bool
+isNullTerminated	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr auto isNullTerminated() const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 isOk	misc/deps/catch2/include/internal/catch_assertionresult.cpp	/^    bool AssertionResult::isOk() const {$/;"	f	class:Catch::AssertionResult	typeref:typename:bool
 isOk	misc/deps/catch2/include/internal/catch_result_type.cpp	/^    bool isOk( ResultWas::OfType resultType ) {$/;"	f	namespace:Catch	typeref:typename:bool
 isOpen	misc/deps/catch2/include/internal/catch_test_case_tracker.cpp	/^    bool TrackerBase::isOpen() const {$/;"	f	class:Catch::TestCaseTracking::TrackerBase	typeref:typename:bool
@@ -3957,9 +3958,6 @@ isOptPrefix	misc/deps/catch2/include/external/clara.hpp	/^    inline auto isOptP
 isOptPrefix	misc/deps/catch2/third_party/clara.hpp	/^    inline auto isOptPrefix( char c ) -> bool {$/;"	f	namespace:clara::detail	typeref:typename:bool
 isOptional	misc/deps/catch2/include/external/clara.hpp	/^        auto isOptional() const -> bool {$/;"	f	class:Catch::clara::detail::ParserRefImpl	typeref:typename:bool
 isOptional	misc/deps/catch2/third_party/clara.hpp	/^        auto isOptional() const -> bool {$/;"	f	class:clara::detail::ParserRefImpl	typeref:typename:bool
-isOwned	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    auto StringRef::isOwned() const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
-isOwned	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        static auto isOwned( StringRef const& stringRef ) -> bool {$/;"	f	struct:Catch::StringRefTestAccess	typeref:typename:bool	file:
-isOwned	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^    auto isOwned( StringRef const& stringRef ) -> bool {$/;"	f	namespace:Catch::__anon8c53414b0110	typeref:typename:bool
 isReleaseNotes	misc/deps/catch2/scripts/updateDocumentToC.py	/^def isReleaseNotes(f):$/;"	f
 isReservedTag	misc/deps/catch2/include/internal/catch_test_case_info.cpp	/^        bool isReservedTag( std::string const& tag ) {$/;"	f	namespace:Catch::__anon539cc7770110	typeref:typename:bool
 isSectionTracker	misc/deps/catch2/include/internal/catch_test_case_tracker.cpp	/^    bool SectionTracker::isSectionTracker() const { return true; }$/;"	f	class:Catch::TestCaseTracking::SectionTracker	typeref:typename:bool
@@ -3968,9 +3966,6 @@ isSet	misc/deps/catch2/include/internal/catch_fatal_condition.cpp	/^    bool Fat
 isSet	misc/deps/catch2/include/internal/catch_fatal_condition.cpp	/^bool FatalConditionHandler::isSet = false;$/;"	m	class:Catch::FatalConditionHandler	typeref:typename:bool
 isSet	misc/deps/catch2/include/internal/catch_fatal_condition.h	/^        static bool isSet;$/;"	m	struct:Catch::FatalConditionHandler	typeref:typename:bool
 isSourceFile	misc/deps/catch2/scripts/fixWhitespace.py	/^def isSourceFile( path ):$/;"	f
-isSubstring	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    auto StringRef::isSubstring() const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
-isSubstring	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        static auto isSubstring( StringRef const& stringRef ) -> bool {$/;"	f	struct:Catch::StringRefTestAccess	typeref:typename:bool	file:
-isSubstring	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^    auto isSubstring( StringRef const& stringRef ) -> bool {$/;"	f	namespace:Catch::__anon8c53414b0110	typeref:typename:bool
 isSuccessfullyCompleted	misc/deps/catch2/include/internal/catch_test_case_tracker.cpp	/^    bool TrackerBase::isSuccessfullyCompleted() const {$/;"	f	class:Catch::TestCaseTracking::TrackerBase	typeref:typename:bool
 isThrowSafe	misc/deps/catch2/include/internal/catch_test_case_registry_impl.cpp	/^    bool isThrowSafe( TestCase const& testCase, IConfig const& config ) {$/;"	f	namespace:Catch	typeref:typename:bool
 isTrue	misc/deps/catch2/projects/XCode/OCTest/OCTest/TestObj.h	/^-(BOOL) isTrue;$/;"	m	interface:TestObj
@@ -4210,7 +4205,6 @@ m_current_number	misc/deps/catch2/include/internal/catch_generators_specific.hpp
 m_current_number	misc/deps/catch2/include/internal/catch_generators_specific.hpp	/^    Integer m_current_number;$/;"	m	class:Catch::Generators::RandomIntegerGenerator	typeref:typename:Integer
 m_current_repeat	misc/deps/catch2/include/internal/catch_generators_generic.hpp	/^        size_t m_current_repeat = 0;$/;"	m	class:Catch::Generators::RepeatGenerator	typeref:typename:size_t
 m_data	misc/deps/catch2/include/internal/catch_config.hpp	/^        ConfigData m_data;$/;"	m	class:Catch::Config	typeref:typename:ConfigData
-m_data	misc/deps/catch2/include/internal/catch_stringref.h	/^        char* m_data = nullptr;$/;"	m	class:Catch::StringRef	typeref:typename:char *
 m_data	misc/deps/catch2/single_include/catch2/catch.hpp	/^        char* m_data = nullptr;$/;"	m	class:Catch::StringRef	typeref:typename:char *
 m_deepestSection	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^        std::shared_ptr<SectionNode> m_deepestSection;$/;"	m	struct:Catch::CumulativeReporterBase	typeref:typename:std::shared_ptr<SectionNode>
 m_description	misc/deps/catch2/include/external/clara.hpp	/^        std::string m_description;$/;"	m	class:Catch::clara::detail::ParserRefImpl	typeref:typename:std::string
@@ -4411,10 +4405,10 @@ m_sectionStack	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^   
 m_sections	misc/deps/catch2/include/reporters/catch_reporter_bases.hpp	/^        std::vector<std::vector<std::shared_ptr<SectionNode>>> m_sections;$/;"	m	struct:Catch::CumulativeReporterBase	typeref:typename:std::vector<std::vector<std::shared_ptr<SectionNode>>>
 m_sel	misc/deps/catch2/include/internal/catch_objc.hpp	/^        SEL m_sel;$/;"	m	class:Catch::OcMethod	typeref:typename:SEL
 m_shouldReportUnexpected	misc/deps/catch2/include/internal/catch_run_context.h	/^        bool m_shouldReportUnexpected = true;$/;"	m	class:Catch::RunContext	typeref:typename:bool
-m_size	misc/deps/catch2/include/internal/catch_stringref.h	/^        size_type m_size;$/;"	m	class:Catch::StringRef	typeref:typename:size_type
+m_size	misc/deps/catch2/include/internal/catch_stringref.h	/^        size_type m_size = 0;$/;"	m	class:Catch::StringRef	typeref:typename:size_type
 m_size	misc/deps/catch2/single_include/catch2/catch.hpp	/^        size_type m_size;$/;"	m	class:Catch::StringRef	typeref:typename:size_type
 m_sortedFunctions	misc/deps/catch2/include/internal/catch_test_case_registry_impl.h	/^        mutable std::vector<TestCase> m_sortedFunctions;$/;"	m	class:Catch::TestRegistry	typeref:typename:std::vector<TestCase>
-m_start	misc/deps/catch2/include/internal/catch_stringref.h	/^        char const* m_start;$/;"	m	class:Catch::StringRef	typeref:typename:char const *
+m_start	misc/deps/catch2/include/internal/catch_stringref.h	/^        char const* m_start = s_empty;$/;"	m	class:Catch::StringRef	typeref:typename:char const *
 m_start	misc/deps/catch2/single_include/catch2/catch.hpp	/^        char const* m_start;$/;"	m	class:Catch::StringRef	typeref:typename:char const *
 m_startupExceptions	misc/deps/catch2/include/internal/catch_session.h	/^        bool m_startupExceptions = false;$/;"	m	class:Catch::Session	typeref:typename:bool
 m_state	misc/deps/catch2/include/internal/catch_random_number_generator.h	/^        std::uint64_t m_state;$/;"	m	class:Catch::SimplePcg32	typeref:typename:std::uint64_t
@@ -4768,7 +4762,7 @@ operator !=	misc/deps/catch2/include/internal/catch_decomposer.h	/^        auto 
 operator !=	misc/deps/catch2/include/internal/catch_decomposer.h	/^        auto operator != ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {$/;"	f	class:Catch::BinaryExpr	typeref:typename:BinaryExpr<LhsT,RhsT const &> const
 operator !=	misc/deps/catch2/include/internal/catch_decomposer.h	/^        auto operator != ( bool rhs ) -> BinaryExpr<LhsT, bool> const {$/;"	f	class:Catch::ExprLhs	typeref:typename:BinaryExpr<LhsT,bool> const
 operator !=	misc/deps/catch2/include/internal/catch_random_number_generator.cpp	/^    bool operator!=(SimplePcg32 const& lhs, SimplePcg32 const& rhs) {$/;"	f	namespace:Catch	typeref:typename:bool
-operator !=	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    auto StringRef::operator != ( StringRef const& other ) const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
+operator !=	misc/deps/catch2/include/internal/catch_stringref.h	/^        auto operator != (StringRef const& other) const noexcept -> bool {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 operator !=	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^        logic_t operator!=(logic_t) const { return {}; }$/;"	f	struct:__anonb1aeb3b90110::CompilationTests::logic_t	typeref:typename:logic_t	file:
 operator !=	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringVector.tests.cpp	/^        bool operator!=( const minimal_allocator<U>& ) const { return false; }$/;"	f	struct:__anon8bbeb4870110::minimal_allocator	typeref:typename:bool	file:
 operator !=	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringWhich.tests.cpp	/^    bool operator!=(int_iterator rhs) const { return val != rhs.val; }$/;"	f	struct:__anonfad788a70210::int_iterator	typeref:typename:bool	file:
@@ -4889,7 +4883,6 @@ operator =	misc/deps/catch2/include/internal/catch_console_colour.cpp	/^    Colo
 operator =	misc/deps/catch2/include/internal/catch_interfaces_reporter.h	/^        LazyStat& operator=( T const& _value ) {$/;"	f	struct:Catch::LazyStat	typeref:typename:LazyStat &
 operator =	misc/deps/catch2/include/internal/catch_option.hpp	/^        Option& operator = ( T const& _value ) {$/;"	f	class:Catch::Option	typeref:typename:Option &
 operator =	misc/deps/catch2/include/internal/catch_option.hpp	/^        Option& operator= ( Option const& _other ) {$/;"	f	class:Catch::Option	typeref:typename:Option &
-operator =	misc/deps/catch2/include/internal/catch_stringref.h	/^        auto operator = ( StringRef const &other ) noexcept -> StringRef& {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 operator =	misc/deps/catch2/include/internal/catch_xmlwriter.cpp	/^    XmlWriter::ScopedElement& XmlWriter::ScopedElement::operator=( ScopedElement&& other ) noexc/;"	f	class:Catch::XmlWriter::ScopedElement	typeref:typename:XmlWriter::ScopedElement &
 operator =	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringVariant.tests.cpp	/^    MyType1& operator=(MyType1 const&) { throw 3; }$/;"	f	struct:MyType1	typeref:typename:MyType1 &	file:
 operator =	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringVariant.tests.cpp	/^    MyType2& operator=(MyType2 const&) { throw 4; }$/;"	f	struct:MyType2	typeref:typename:MyType2 &	file:
@@ -5182,8 +5175,7 @@ ratio_string	misc/deps/catch2/single_include/catch2/catch.hpp	/^struct ratio_str
 ratio_string	misc/deps/catch2/single_include/catch2/catch.hpp	/^struct ratio_string<std::milli> {$/;"	s	namespace:Catch
 ratio_string	misc/deps/catch2/single_include/catch2/catch.hpp	/^struct ratio_string<std::nano> {$/;"	s	namespace:Catch
 ratio_string	misc/deps/catch2/single_include/catch2/catch.hpp	/^struct ratio_string<std::pico> {$/;"	s	namespace:Catch
-rawChars	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^            auto rawChars = ss.currentData();$/;"	v	typeref:typename:auto
-rawChars	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        auto rawChars = s.currentData();$/;"	v	typeref:typename:auto
+rawChars	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        auto rawChars = s.data();$/;"	v	typeref:typename:auto
 rawMemoryToString	misc/deps/catch2/include/internal/catch_tostring.cpp	/^    std::string rawMemoryToString( const void *object, std::size_t size ) {$/;"	f	namespace:Catch::Detail	typeref:typename:std::string
 rawMemoryToString	misc/deps/catch2/include/internal/catch_tostring.h	/^        std::string rawMemoryToString( const T& object ) {$/;"	f	namespace:Catch::Detail	typeref:typename:std::string
 rawMemoryToString	misc/deps/catch2/single_include/catch2/catch.hpp	/^        std::string rawMemoryToString( const T& object ) {$/;"	f	namespace:Catch::Detail	typeref:typename:std::string
@@ -5465,7 +5457,7 @@ signalDefs	misc/deps/catch2/include/internal/catch_fatal_condition.cpp	/^    sta
 signal_t	misc/deps/catch2/projects/SelfTest/UsageTests/Compilation.tests.cpp	/^    using signal_t = void (*) (void*);$/;"	t	namespace:__anonb1aeb3b90110::CompilationTests	file:
 sinceEpochParser	misc/deps/catch2/scripts/approvalTests.py	/^sinceEpochParser = re.compile(r'\\d+ .+ since epoch')$/;"	v
 singular	misc/deps/catch2/projects/SelfTest/UsageTests/ToStringGeneral.tests.cpp	/^        int singular[1] = { 1 };$/;"	v	typeref:typename:int[1]
-size	misc/deps/catch2/include/internal/catch_stringref.h	/^        auto size() const noexcept -> size_type {$/;"	f	class:Catch::StringRef	typeref:typename:auto
+size	misc/deps/catch2/include/internal/catch_stringref.h	/^        constexpr auto size() const noexcept -> size_type {$/;"	f	class:Catch::StringRef	typeref:typename:auto
 size	misc/deps/catch2/projects/ExtraTests/X20-BenchmarkingMacros.cpp	/^    static const int size = 100;$/;"	v	typeref:typename:const int	file:
 size	misc/deps/catch2/projects/SelfTest/UsageTests/Benchmark.tests.cpp	/^    static const int size = 100;$/;"	v	typeref:typename:const int	file:
 size	misc/deps/catch2/projects/SelfTest/UsageTests/Class.tests.cpp	/^    size_t size() { return 0; }$/;"	f	struct:__anon27b7d6900110::ClassTests::Template_Foo	typeref:typename:size_t	file:
@@ -5529,6 +5521,8 @@ splitStringRef	misc/deps/catch2/include/internal/catch_string_manip.cpp	/^    st
 sr	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^            StringRef sr = stdStr;$/;"	v	typeref:typename:StringRef
 sr	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^            StringRef sr;$/;"	v	typeref:typename:StringRef
 sr	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        StringRef sr = "a stringref";$/;"	v	typeref:typename:StringRef
+sr1	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        constexpr auto sr1 = "abc"_catch_sr;$/;"	v	typeref:typename:auto
+sr2	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        constexpr auto sr2 = ""_sr;$/;"	v	typeref:typename:auto
 ss	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/String.tests.cpp	/^        StringRef ss = s.substr(0, 5);$/;"	v	typeref:typename:StringRef
 stable_branch_pattern	misc/deps/catch2/.conan/build.py	/^    def stable_branch_pattern(self):$/;"	m	class:BuilderSettings
 standardDeviation	misc/deps/catch2/include/internal/catch_interfaces_reporter.h	/^        Benchmark::Estimate<Duration> standardDeviation;$/;"	m	struct:Catch::BenchmarkStats	typeref:typename:Benchmark::Estimate<Duration>
@@ -5609,7 +5603,6 @@ suite	misc/deps/catch2/contrib/CatchAddTests.cmake	/^set(suite)$/;"	v
 suiteTimer	misc/deps/catch2/include/reporters/catch_reporter_junit.h	/^        Timer suiteTimer;$/;"	m	class:Catch::JunitReporter	typeref:typename:Timer
 sum	misc/deps/catch2/projects/ExtraTests/X20-BenchmarkingMacros.cpp	/^        int sum = 0;$/;"	v	typeref:typename:int
 sum	misc/deps/catch2/projects/SelfTest/UsageTests/Benchmark.tests.cpp	/^        int sum = 0;$/;"	v	typeref:typename:int
-swap	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    void StringRef::swap( StringRef& other ) noexcept {$/;"	f	class:Catch::StringRef	typeref:typename:void
 symbol	misc/deps/catch2/include/internal/catch_tostring.cpp	/^std::string ratio_string<std::atto>::symbol() { return "a"; }$/;"	f	class:Catch::ratio_string::atto	typeref:typename:std::string
 symbol	misc/deps/catch2/include/internal/catch_tostring.cpp	/^std::string ratio_string<std::femto>::symbol() { return "f"; }$/;"	f	class:Catch::ratio_string::femto	typeref:typename:std::string
 symbol	misc/deps/catch2/include/internal/catch_tostring.cpp	/^std::string ratio_string<std::micro>::symbol() { return "u"; }$/;"	f	class:Catch::ratio_string::micro	typeref:typename:std::string
@@ -5653,7 +5646,6 @@ tags	misc/deps/catch2/include/internal/catch_test_registry.h	/^    StringRef tag
 tags	misc/deps/catch2/single_include/catch2/catch.hpp	/^    StringRef tags;$/;"	m	struct:Catch::NameAndTags	typeref:typename:StringRef
 tagsAsString	misc/deps/catch2/include/internal/catch_test_case_info.cpp	/^    std::string TestCaseInfo::tagsAsString() const {$/;"	f	class:Catch::TestCaseInfo	typeref:typename:std::string
 take	misc/deps/catch2/include/internal/catch_generators_generic.hpp	/^    GeneratorWrapper<T> take(size_t target, GeneratorWrapper<T>&& generator) {$/;"	f	namespace:Catch::Generators	typeref:typename:GeneratorWrapper<T>
-takeOwnership	misc/deps/catch2/include/internal/catch_stringref.cpp	/^    void StringRef::takeOwnership() {$/;"	f	class:Catch::StringRef	typeref:typename:void
 tcA	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/CmdLine.tests.cpp	/^    Catch::TestCase tcA = fakeTestCase( "a" );$/;"	v	typeref:typename:Catch::TestCase
 tcB	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/CmdLine.tests.cpp	/^    Catch::TestCase tcB = fakeTestCase( "b", "[one][x]" );$/;"	v	typeref:typename:Catch::TestCase
 tcC	misc/deps/catch2/projects/SelfTest/IntrospectiveTests/CmdLine.tests.cpp	/^    Catch::TestCase tcC = fakeTestCase( "longer name with spaces", "[two][three][.][x]" );$/;"	v	typeref:typename:Catch::TestCase
@@ -6092,7 +6084,6 @@ z	misc/deps/catch2/projects/SelfTest/UsageTests/Generators.tests.cpp	/^    auto 
 ~Section	misc/deps/catch2/include/internal/catch_section.cpp	/^    Section::~Section() {$/;"	f	class:Catch::Section
 ~Session	misc/deps/catch2/include/internal/catch_session.cpp	/^    Session::~Session() {$/;"	f	class:Catch::Session
 ~StreamBufImpl	misc/deps/catch2/include/internal/catch_stream.cpp	/^            ~StreamBufImpl() noexcept {$/;"	f	class:Catch::Detail::__anond61e3add0110::StreamBufImpl	file:
-~StringRef	misc/deps/catch2/include/internal/catch_stringref.h	/^        ~StringRef() noexcept {$/;"	f	class:Catch::StringRef
 ~StringRef	misc/deps/catch2/single_include/catch2/catch.hpp	/^        ~StringRef() noexcept {$/;"	f	class:Catch::StringRef
 ~TAPReporter	misc/deps/catch2/include/reporters/catch_reporter_tap.hpp	/^    TAPReporter::~TAPReporter() {}$/;"	f	class:Catch::TAPReporter
 ~TAPReporter	misc/deps/catch2/single_include/catch2/catch_reporter_tap.hpp	/^    TAPReporter::~TAPReporter() {}$/;"	f	class:Catch::TAPReporter

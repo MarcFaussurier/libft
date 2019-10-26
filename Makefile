@@ -106,19 +106,30 @@ TESTSRC		:=./misc/tests/ft_string/strcpy.cpp\
 ./misc/tests/ft_memory/calloc.cpp\
 ./misc/tests/ft_memory/memchr.cpp\
 ./misc/tests/main.cpp
+BONUSSRC		:=./src_bonus/ft_list/ft_lstadd_back.c\
+./src_bonus/ft_list/ft_lstnew.c\
+./src_bonus/ft_list/ft_lstlast.c\
+./src_bonus/ft_list/ft_lstclear.c\
+./src_bonus/ft_list/ft_lstiter.c\
+./src_bonus/ft_list/ft_lstmap.c\
+./src_bonus/ft_list/ft_lstsize.c\
+./src_bonus/ft_list/ft_lstadd_front.c\
+./src_bonus/ft_list/ft_lstdelone.c
 # =============================================================================
 # =============== PROJECT CONFIGURATION SECTION ===============================
 # =============================================================================
 # full generated binary name (with extension, relative to Makefile dir)
 NAME		:= libft.a
-# valid output types are : executable static shared wasm
-TYPE		:= static
+# valid output types are : executable static shared
+TYPE		:= share
 # will pass debug flags
 DEBUG		:= 0
 # where cpp tests dirs are
 TESTDIR		:= misc/tests
 # useful scripts
 EZBUILD		:= misc/deps/ezbuild
+# bonus
+BONUSDIR	:= src_bonus
 # =============================================================================
 # ====================== DEFAULT OPTIONS ========================================
 # =============================================================================
@@ -148,6 +159,7 @@ LIBPATH     ?=# ./../../lib
 LIBNAME     ?=# foobar
 CSRC        ?=
 COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
+BONUSOBJ    ?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
 CDF         ?= $(patsubst %.o,%.d,$(COBJ))
 CXXSRC      ?=
 CXXOBJ      ?= $(patsubst %.cpp,%.o,$(subst $(SRCDIR),$(BINDIR),$(CXXSRC)))
@@ -200,14 +212,14 @@ re:
 		fclean all test
 norme:
 		norminette
+bonus:	$(COBJ) $(BONUSOBJ)
+		$(AR) $(ARFLAGS) $(NAME) $(COBJ) $(BONUSOBJ)
 release:
 		source $(EZBUILD)/release.sh && release
-$(BINDIR)/%.o:				$(SRCDIR)/%.c
-ifeq ($(TYPE),wasm)
-		$(EMCC)  -s ASSERTIONS=1 -s SAFE_HEAP=1 -s BINARYEN_ASYNC_COMPILATION=0 $(CFLAGS)		-c		$< -o					$@
-else
+$(BINDIR)/%.o:				$(BONUSDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
-endif
+$(BINDIR)/%.o:				$(SRCDIR)/%.c
+		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(BINDIR)/%.o:				$(SRCDIR)/%.cpp
 ifeq ($(CXXENABLED),1)
 		$(CXX) $(CXXFLAGS)		-c		$< -o					$@

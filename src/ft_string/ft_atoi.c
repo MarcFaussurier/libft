@@ -3,8 +3,8 @@
 
 int         ft_atoi(const char *str)
 {
-	int	    sign;
-	int	    nbr;
+    int	                    sign;
+	long	                nbr;
 
 	sign = 1;
 	while (ft_isspace(*str) && (str++ || 1))
@@ -13,8 +13,14 @@ int         ft_atoi(const char *str)
 		if (*str++ == '-')
 			sign = -1;
 	nbr = 0;
-	str -= 1;
+    str -= 1;
     while (ft_isdigit((int)*++str))
+    {
 		nbr = nbr * 10 + *str - '0';
-	return (sign * nbr);
+      //  if (nbr >= 2147483648 && sign == -1)
+       //     return (-2147483648);
+       // if (nbr >= 2147483647 && sign == 1)
+      //      return (2147483647);
+    }
+    return (sign * nbr);
 }
