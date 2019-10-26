@@ -5,15 +5,25 @@ A basic repo I made so that I will spend less time in creating my next projects.
 ## Comands
 
 make update
+
 make
+
 make test
+
 make run
+
 make watch
+
 make watch-test
+
 make watch-run
+
 make clean
+
 make fclean
+
 make release
+
 make norme
 
 ## Credits
