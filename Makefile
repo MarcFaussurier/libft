@@ -115,22 +115,12 @@ NAME		:= libft.a
 TYPE		:= static
 # will pass debug flags
 DEBUG		:= 0
-# where tests dirs are
+# where cpp tests dirs are
 TESTDIR		:= misc/tests
+# useful scripts
+EZBUILD		:= misc/deps/ezbuild
 # =============================================================================
-# ========================= UTILS =============================================
-# =============================================================================
-define str_replace
-		$(subst $(2),$(3),$(1))
-endef
-define find_by_ext
-        $(shell find $(1) -type f -name "*.$(2)")
-endef
-define replace_ext
-        $(patsubst %.$(1),%.$(2),$(3))
-endef
-# =============================================================================
-# ==================== DEFAULT OPTIONS ========================================
+# ====================== DEFAULT OPTIONS ========================================
 # =============================================================================
 # string variables
 SRCDIR		?= src
@@ -141,6 +131,7 @@ TEST        ?= test
 TYPE        ?= executable
 DEBUG       ?= 1
 CXXENABLED  ?= 0
+EZBUILD		?= ./misc/deps/ezbuild
 # default toolchain
 RM          ?= /bin/rm -f
 AR			?= ar
@@ -155,25 +146,28 @@ TESTFLAGS   ?= $(CXXFLAGS)
 INCDIR      ?= inc/
 LIBPATH     ?=# ./../../lib
 LIBNAME     ?=# foobar
-CSRC        ?= $(call find_by_ext,$(SRCDIR),c)
-COBJ        ?= $(call replace_ext,c,o,$(call str_replace,$(CSRC),$(SRCDIR),$(BINDIR)))
-CDF         ?= $(call replace_ext,o,d,$(COBJ))
-CXXSRC      ?= $(call find_by_ext,$(SRCDIR),cpp)
-CXXDF       ?= $(call replace_ext,o,d,$(COBJ))
-CXXOBJ      ?= $(call replace_ext,cpp,o,$(call str_replace,$(CXXSRC),$(SRCDIR),$(BINDIR)))
-TESTSRC     ?= $(call find_by_ext,$(TESTDIR),cpp)
-TESTOBJ     ?= $(call replace_ext,cpp,o,$(call str_replace,$(TESTSRC),$(TESTDIR),$(BINDIR)/$(TESTDIR)))
-TESTDF      ?= $(call replace_ext,o,d,$(TESTOBJ))
-LIBDIR      ?= $(addprefix -L,$(LIBDIR))
-LIBNAME     ?= $(addprefix -l $(LIBNAME))
-INCDIR      ?= $(addprefix -I $(INCDIR))
-CXXFLAGS    ?= $(CXXFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)
-CFLAGS      ?= $(CFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)
-TESTFLAGS   ?= $(TESTFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)
-DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
+CSRC        ?=
+COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
+CDF         ?= $(patsubst %.o,%.d,$(COBJ))
+CXXSRC      ?=
+CXXOBJ      ?= $(patsubst %.cpp,%.o,$(subst $(SRCDIR),$(BINDIR),$(CXXSRC)))
+CXXDF       ?= $(patsubst %.o,%.d,$(CXXOBJ))
+TESTSRC     ?=
+TESTOBJ     ?= $(patsubst %.cpp,%.o,$(subst $(TESTDIR),$(BINDIR)/$(TESTDIR),$(TESTSRC)))
+TESTDF      ?= $(patsubst %.o,%.d,$(TESTOBJ))
 MKFILE_PATH ?= $(abspath $(lastword $(MAKEFILE_LIST)))
 CURRENT_DIR ?= $(patsubst %/,%,$(dir $(MKFILE_PATH)))
 DEBUG		?= 0
+DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
+# =============================================================================
+# ======================== PROCESSING =========================================
+# =============================================================================
+LIBDIR      := $(addprefix -L,$(LIBDIR))
+LIBNAME     := $(addprefix -l,$(LIBNAME))
+INCDIR      := $(addprefix -I,$(INCDIR))
+CXXFLAGS    := $(CXXFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
+CFLAGS      := $(CFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
+TESTFLAGS   := $(TESTFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)
 ifeq ($(DEBUG),1)
 CXXFLAGS    += $(DEBUGFLAGS)
 CFLAGS		+= $(DEBUGFLAGS)
@@ -184,12 +178,18 @@ endif
 # make rules
 all:                        $(NAME)
 make:
-		./misc/Makemakefile
-watch-compile:
-		source $(current_dir)/watcher.sh "make" "$(SRCDIR)" "$(TESTDIR)"
+		$(EZBUILD)/Makemakefile -y
+update:
+		source $(EZBUILD)/update.sh && update
+run:
+		./$(NAME)
+watch:
+		source $(EZBUILD)/watcher.sh  && watchFolders "make make && make" "$(SRCDIR) $(TESTDIR)"
 watch-test:
-		source $(current_dir)/watcher.sh "make test" "$(SRCDIR)" "$(TESTDIR)"
-test:                                           $(COBJ) $(CXXOBJ) $(TESTOBJ)
+		source $(EZBUILD)/watcher.sh && watchFolders "make make && make test" "$(SRCDIR) $(TESTDIR)"
+watch-run:
+		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make make && make run" "$(SRCDIR)" "$(TESTDIR)"
+test:						$(COBJ) $(CXXOBJ) $(TESTOBJ)
 		$(CXX) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CXXOBJ)
 		./$(BINDIR)/$(TESTDIR)/$(TEST)
 clean:
@@ -201,12 +201,16 @@ re:
 norme:
 		norminette
 release:
-		./.misc/release.sh
+		source $(EZBUILD)/release.sh && release
 $(BINDIR)/%.o:				$(SRCDIR)/%.c
+ifeq ($(TYPE),wasm)
+		$(EMCC)  -s ASSERTIONS=1 -s SAFE_HEAP=1 -s BINARYEN_ASYNC_COMPILATION=0 $(CFLAGS)		-c		$< -o					$@
+else
 		$(CC) $(CFLAGS)			-c		$< -o					$@
+endif
 $(BINDIR)/%.o:				$(SRCDIR)/%.cpp
 ifeq ($(CXXENABLED),1)
-        $(CXX) $(CXXFLAGS)		-c		$< -o					$@
+		$(CXX) $(CXXFLAGS)		-c		$< -o					$@
 endif
 $(BINDIR)/$(TESTDIR)/%.o:	$(TESTDIR)/%.cpp
 		$(CXX) $(CXXFLAGS)		-c		$< -o					$@

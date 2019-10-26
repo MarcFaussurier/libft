@@ -4,3 +4,6 @@
 [submodule "deps/ezbuild"]
 	path = deps/ezbuild
 	url = https://github.com/MarcFaussurier/ezbuild.git
+[submodule "misc/deps/ezbuild"]
+	path = misc/deps/ezbuild
+	url = https://github.com/MarcFaussurier/ezbuild

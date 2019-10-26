@@ -18,7 +18,6 @@ static void test_value()
 }
 
 TEST_CASE( "ft_bzero") {
-    ft_putendl("Hello world!");
 	test_value();
     REQUIRE( t_status == 0 );
 	t_status = 0;
