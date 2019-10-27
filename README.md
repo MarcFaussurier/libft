@@ -10,6 +10,9 @@ _Will load deps_
 _Will compile everything expect bonus_
 - make
 
+_Will compile everything including bonus_
+- make bonus
+
 _Will test all functions using my own tests_
 - make test
 
