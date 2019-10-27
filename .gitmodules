@@ -10,3 +10,6 @@
 [submodule "misc/deps/catch2"]
 	path = misc/deps/catch2
 	url = https://github.com/catchorg/Catch2
+[submodule "misc/deps/libft-unit-test"]
+	path = misc/deps/libft-unit-test
+	url = https://github.com/MarcFaussurier/libft-unit-test
