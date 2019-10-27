@@ -4,7 +4,7 @@ A basic repo I made so that I will spend less time in creating my next projects.
 
 ## Comands
 
-**___Will load deps_
+_Will load deps_
 - make update
 
 _Will compile everything expect bonus_
