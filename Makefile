@@ -73,15 +73,11 @@ TESTDIR     ?= test
 NAME        ?= a.out
 TEST        ?= test
 DEBUG       ?= 1
-
 RM          ?= /bin/rm -f
 AR			?= ar
 ARFLAGS		?= -rcs
 CC          ?= gcc
-CXX         ?= g++
-
 CFLAGS      ?= -MMD -Werror -Wextra -Wall
-
 INCDIR      ?= inc/
 CSRC        ?=
 COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
@@ -90,9 +86,8 @@ CDF         ?= $(patsubst %.o,%.d,$(COBJ))
 BONUSDF		?= $(patsubst %.o,%.d,$(BONUSOBJ))
 DEBUG		?= 0
 DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
-
 INCDIR      := $(addprefix -I,$(INCDIR))
-CFLAGS      := $(CFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
+CFLAGS      := $(CFLAGS) $(INCDIR)
 ifeq ($(DEBUG),1)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
