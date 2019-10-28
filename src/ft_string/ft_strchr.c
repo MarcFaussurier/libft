@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_strchr.c                                      .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:03:15 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:05:10 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "../../inc/ft.h"
 
-char        *ft_strchr(const char *s, int c)
+char			*ft_strchr(const char *s, int c)
 {
-    s -= 1;
-    while (*++s != (char)c)
+	s -= 1;
+	while (*++s != (char)c)
 		if (*s == '\0')
-			return NULL;
+			return (NULL);
 	return (char *)s;
 }

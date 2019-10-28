@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_bytes_digits.c                                .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:27:40 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:27:46 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-unsigned int    ft_bytes_digits(size_t bytes)
+unsigned int		ft_bytes_digits(size_t bytes)
 {
-    return (ft_numlen((1 << bytes) - 1));
+	return (ft_numlen((1 << bytes) - 1));
 }

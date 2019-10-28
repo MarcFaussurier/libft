@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_read_fd.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:20:07 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:20:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-char    *ft_read_fd(char delimiter, int fd)
+char				*ft_read_fd(char delimiter, int fd)
 {
 	unsigned int	input_len;
 	char			*input_buffer;

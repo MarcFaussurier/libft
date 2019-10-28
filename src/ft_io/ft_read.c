@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_read.c                                        .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:28:40 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:28:47 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-char    *ft_read(char delimiter)
+char		*ft_read(char delimiter)
 {
-    return (ft_read_fd(delimiter, STDIN_FILENO));
+	return (ft_read_fd(delimiter, STDIN_FILENO));
 }

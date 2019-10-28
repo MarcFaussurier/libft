@@ -1,6 +1,3 @@
-# =============================================================================
-# ==================== GENERATED SECTION ======================================
-# =============================================================================
 CSRC			:=./src/ft_string/ft_strnstr.c\
 ./src/ft_string/ft_isdigit.c\
 ./src/ft_string/ft_atol.c\
@@ -39,7 +36,6 @@ CSRC			:=./src/ft_string/ft_strnstr.c\
 ./src/ft_io/ft_putnbr_fd.c\
 ./src/ft_io/ft_putendl.c\
 ./src/ft_io/ft_putendl_fd.c\
-./src/ft_io/ft_ob.c\
 ./src/ft_io/ft_putchar.c\
 ./src/ft_io/ft_read.c\
 ./src/ft_io/ft_putchar_fd.c\
@@ -57,55 +53,6 @@ CSRC			:=./src/ft_string/ft_strnstr.c\
 ./src/ft_memory/ft_calloc.c\
 ./src/ft_memory/ft_numlen.c\
 ./src/ft_memory/ft_bytes_digits.c
-CXXSRC		:=
-TESTSRC		:=./misc/tests/ft_string/strcpy.cpp\
-./misc/tests/ft_string/strlcpy.cpp\
-./misc/tests/ft_string/strdup.cpp\
-./misc/tests/ft_string/isupper.cpp\
-./misc/tests/ft_string/split.cpp\
-./misc/tests/ft_string/isspace.cpp\
-./misc/tests/ft_string/tolower.cpp\
-./misc/tests/ft_string/atol.cpp\
-./misc/tests/ft_string/isalnum.cpp\
-./misc/tests/ft_string/islower.cpp\
-./misc/tests/ft_string/isalpha.cpp\
-./misc/tests/ft_string/strlcat.cpp\
-./misc/tests/ft_string/toupper.cpp\
-./misc/tests/ft_string/strncmp.cpp\
-./misc/tests/ft_string/atoi.cpp\
-./misc/tests/ft_string/isdigit.cpp\
-./misc/tests/ft_string/isprint.cpp\
-./misc/tests/ft_string/count_occ.cpp\
-./misc/tests/ft_string/substr.cpp\
-./misc/tests/ft_string/isascii.cpp\
-./misc/tests/ft_string/strtrim_end.cpp\
-./misc/tests/ft_string/strmapi.cpp\
-./misc/tests/ft_string/strrchr.cpp\
-./misc/tests/ft_string/strlen.cpp\
-./misc/tests/ft_string/strjoin.cpp\
-./misc/tests/ft_string/strtrim_begin.cpp\
-./misc/tests/ft_string/atoll.cpp\
-./misc/tests/ft_string/itoa.cpp\
-./misc/tests/ft_string/strtrim.cpp\
-./misc/tests/ft_string/strnstr.cpp\
-./misc/tests/ft_string/strchr.cpp\
-./misc/tests/utils/vmfill.cpp\
-./misc/tests/utils/print.cpp\
-./misc/tests/utils/rand.cpp\
-./misc/tests/utils/fdfill.cpp\
-./misc/tests/utils/memfill.cpp\
-./misc/tests/utils/path.cpp\
-./misc/tests/utils/setrlim.cpp\
-./misc/tests/utils/utf8.cpp\
-./misc/tests/ft_memory/bzero.cpp\
-./misc/tests/ft_memory/memccpy.cpp\
-./misc/tests/ft_memory/memcpy.cpp\
-./misc/tests/ft_memory/memset.cpp\
-./misc/tests/ft_memory/memmove.cpp\
-./misc/tests/ft_memory/memcmp.cpp\
-./misc/tests/ft_memory/calloc.cpp\
-./misc/tests/ft_memory/memchr.cpp\
-./misc/tests/main.cpp
 BONUSSRC		:=./src_bonus/ft_list/ft_lstadd_back.c\
 ./src_bonus/ft_list/ft_lstnew.c\
 ./src_bonus/ft_list/ft_lstlast.c\
@@ -115,23 +62,11 @@ BONUSSRC		:=./src_bonus/ft_list/ft_lstadd_back.c\
 ./src_bonus/ft_list/ft_lstsize.c\
 ./src_bonus/ft_list/ft_lstadd_front.c\
 ./src_bonus/ft_list/ft_lstdelone.c
-# =============================================================================
-# =============== PROJECT CONFIGURATION SECTION ===============================
-# =============================================================================
-# full generated binary name (with extension, relative to Makefile dir)
+
 NAME		:= libft.a
-# will pass debug flags
 DEBUG		:= 0
-# where cpp tests dirs are
-TESTDIR		:= misc/tests
-# useful scripts
-EZBUILD		:= misc/deps/ezbuild
-# bonus
 BONUSDIR	:= src_bonus
-# =============================================================================
-# ====================== DEFAULT OPTIONS ========================================
-# =============================================================================
-# string variables
+
 SRCDIR		?= src
 BINDIR      ?= bin
 TESTDIR     ?= test
@@ -139,17 +74,15 @@ NAME        ?= a.out
 TEST        ?= test
 DEBUG       ?= 1
 EZBUILD		?= ./misc/deps/ezbuild
-# default toolchain
+
 RM          ?= /bin/rm -f
 AR			?= ar
 ARFLAGS		?= -rcs
 CC          ?= gcc
 CXX         ?= g++
-# default flags
+
 CFLAGS      ?= -MMD -Werror -Wextra -Wall
-CXXFLAGS    ?= -std=c++11 $(CFLAGS)
-TESTFLAGS   ?= $(CXXFLAGS)
-# array variables
+
 INCDIR      ?= inc/
 LIBPATH     ?=# ./../../lib
 LIBNAME     ?=# foobar
@@ -157,50 +90,25 @@ CSRC        ?=
 COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
 BONUSOBJ    ?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
 CDF         ?= $(patsubst %.o,%.d,$(COBJ))
-TESTSRC     ?=
-TESTOBJ     ?= $(patsubst %.cpp,%.o,$(subst $(TESTDIR),$(BINDIR)/$(TESTDIR),$(TESTSRC)))
-TESTDF      ?= $(patsubst %.o,%.d,$(TESTOBJ))
+BONUSDF		?= $(patsubst %.o,%.d,$(BONUSOBJ))
 MKFILE_PATH ?= $(abspath $(lastword $(MAKEFILE_LIST)))
 CURRENT_DIR ?= $(patsubst %/,%,$(dir $(MKFILE_PATH)))
 DEBUG		?= 0
 DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
-# =============================================================================
-# ======================== PROCESSING =========================================
-# =============================================================================
+
 LIBDIR      := $(addprefix -L,$(LIBDIR))
 LIBNAME     := $(addprefix -l,$(LIBNAME))
 INCDIR      := $(addprefix -I,$(INCDIR))
-CXXFLAGS    := $(CXXFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
 CFLAGS      := $(CFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
-TESTFLAGS   := $(TESTFLAGS) $(INCDIR) $(LIBDIR) $(LIBNAME)
 ifeq ($(DEBUG),1)
-CXXFLAGS    += $(DEBUGFLAGS)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
-# =============================================================================
-# ======================= DEFAULT RULES =======================================
-# =============================================================================
-# make rules
+
 all:                        $(NAME)
-make:
-		$(EZBUILD)/Makemakefile -y
-f:
-		cd misc/deps/libft-unit-test && make f
-update:
-		source $(EZBUILD)/update.sh && update
-watch:
-		source $(EZBUILD)/watcher.sh  && watchFolders "make make all" "$(SRCDIR) $(TESTDIR)"
-watch-test:
-		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make make test" "$(SRCDIR) $(TESTDIR)"
-watch-f:
-		source $(EZBUILD)/async.sh && source $(EZBUILD)/async_watcher.sh && asyncWatchFolders "make make f" "$(SRCDIR) $(TESTDIR)"
-test:						$(COBJ) $(CXXOBJ) $(TESTOBJ)
-		$(CXX) $(CXXFLAGS) -o $(BINDIR)/$(TESTDIR)/$(TEST) $(COBJ) $(TESTOBJ)
-		./$(BINDIR)/$(TESTDIR)/$(TEST)
 clean:
-		$(RM) $(COBJ) $(CXXOBJ) $(TESTOBJ) $(CDF) $(CXXDF) $(TESTDF)
+		$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) tags
 fclean:
-		$(RM) $(NAME) $(BINDIR)/$(TESTDIR)/$(TEST)
+		$(RM) $(NAME)
 re:
 		fclean all test
 norme:
@@ -213,8 +121,6 @@ $(BINDIR)/%.o:				$(BONUSDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(BINDIR)/%.o:				$(SRCDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(BINDIR)/$(TESTDIR)/%.o:	$(TESTDIR)/%.cpp
-		$(CXX) $(CXXFLAGS)		-c		$< -o					$@
 $(NAME):                                        $(COBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ)
 .PHONY:

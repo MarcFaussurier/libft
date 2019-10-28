@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_putstr_fd.c                                   .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:28:21 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:28:28 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void		ft_putstr_fd(char *s, int fd)
 {
-    if (!s)
-        return ;
-    while (*s)
-    {
-        ft_putchar_fd(*s, fd);
-        ++s;
-    }
+	if (!s)
+		return ;
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd);
+		++s;
+	}
 }

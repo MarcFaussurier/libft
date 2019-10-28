@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_putchar.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:30:54 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:31:07 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-void    ft_putchar(char c)
+void		ft_putchar(char c)
 {
-    ft_putchar_fd(c, STDIN_FILENO);
+	ft_putchar_fd(c, STDIN_FILENO);
 }
-

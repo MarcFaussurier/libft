@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_isalnum.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/28 16:10:26 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 16:10:33 by mfaussur    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "./../../inc/ft.h"
 
-int         ft_isalnum(int c)
+int			ft_isalnum(int c)
 {
-    return (ft_isdigit(c) || ft_isalpha(c));
+	return (ft_isdigit(c) || ft_isalpha(c));
 }

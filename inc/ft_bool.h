@@ -14,10 +14,10 @@
 #ifndef FT_BOOL_H
 # define FT_BOOL_H
 # ifndef false
-#  define false 0
+#  define FALSE 0
 # endif
 # ifndef true
-#  define true 1
+#  define TRUE 1
 # endif
 
 typedef enum			e_bool
