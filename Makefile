@@ -87,12 +87,12 @@ ifeq ($(DEBUG),1)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
 
-all:						mkbin $(NAME)
+all:						$(NAME)
 mkbin:
 		mkdir -p $(BINDIR)
 clean:
 		$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) $(BINDIR) tags
-fclean:
+fclean:						clean
 		$(RM) $(NAME)
 re:
 		fclean all
@@ -104,7 +104,7 @@ $(BINDIR)%.o:				$(BONUSDIR)%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(BINDIR)%.o:				$(SRCDIR)%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(NAME):					$(COBJ)
+$(NAME):				mkbin	$(COBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ)
 .PHONY:
 		all fclean clean re bonus
