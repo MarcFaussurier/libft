@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/15 17:10:04 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/15 17:42:56 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/28 18:43:16 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,6 @@ size_t			ft_strlcat(char *dst, const	char *src, size_t dstsize);
 char			*ft_strnstr(const char	*big, const char *little, size_t len);
 int				ft_atoi(const char *nptr);
 long			ft_atol(const char *nptr);
-long long		ft_atoll(const char *nptr);
 char			*ft_strdup(const char *s);
 char			*ft_strndup(const char *s, size_t n);
 char			*ft_strdupa(const char *s);
