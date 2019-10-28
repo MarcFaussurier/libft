@@ -73,7 +73,6 @@ TESTDIR     ?= test
 NAME        ?= a.out
 TEST        ?= test
 DEBUG       ?= 1
-EZBUILD		?= ./misc/deps/ezbuild
 
 RM          ?= /bin/rm -f
 AR			?= ar
@@ -84,20 +83,14 @@ CXX         ?= g++
 CFLAGS      ?= -MMD -Werror -Wextra -Wall
 
 INCDIR      ?= inc/
-LIBPATH     ?=# ./../../lib
-LIBNAME     ?=# foobar
 CSRC        ?=
 COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
 BONUSOBJ    ?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
 CDF         ?= $(patsubst %.o,%.d,$(COBJ))
 BONUSDF		?= $(patsubst %.o,%.d,$(BONUSOBJ))
-MKFILE_PATH ?= $(abspath $(lastword $(MAKEFILE_LIST)))
-CURRENT_DIR ?= $(patsubst %/,%,$(dir $(MKFILE_PATH)))
 DEBUG		?= 0
 DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
 
-LIBDIR      := $(addprefix -L,$(LIBDIR))
-LIBNAME     := $(addprefix -l,$(LIBNAME))
 INCDIR      := $(addprefix -I,$(INCDIR))
 CFLAGS      := $(CFLAGS)	$(INCDIR) $(LIBDIR) $(LIBNAME)
 ifeq ($(DEBUG),1)
@@ -110,18 +103,16 @@ clean:
 fclean:
 		$(RM) $(NAME)
 re:
-		fclean all test
+		fclean all
 norme:
 		norminette
-bonus:	$(COBJ) $(BONUSOBJ)
+bonus:						$(COBJ) $(BONUSOBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ) $(BONUSOBJ)
-release:
-		source $(EZBUILD)/release.sh && release
 $(BINDIR)/%.o:				$(BONUSDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(BINDIR)/%.o:				$(SRCDIR)/%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(NAME):                                        $(COBJ)
+$(NAME):					$(COBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ)
 .PHONY:
-		all fclean clean re test
+		all fclean clean re bonus
