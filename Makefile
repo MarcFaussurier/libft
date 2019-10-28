@@ -1,6 +1,5 @@
 CSRC			:=./ft_strnstr.c\
 ./ft_isdigit.c\
-./ft_atol.c\
 ./ft_strlcpy.c\
 ./ft_strlen.c\
 ./ft_strnlen.c\
@@ -12,7 +11,6 @@ CSRC			:=./ft_strnstr.c\
 ./ft_split.c\
 ./ft_strrchr.c\
 ./ft_isalpha.c\
-./ft_atoll.c\
 ./ft_substr.c\
 ./ft_strncmp.c\
 ./ft_strcpy.c\
