@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:13:03 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:11 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/28 18:41:35 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 long				ft_atol(const char *str)
 {
-	int			sign;
+	int				sign;
 	long long		nbr;
 	long long		tmp;
 
