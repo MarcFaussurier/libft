@@ -1,109 +1,110 @@
-CSRC			:=./src/ft_string/ft_strnstr.c\
-./src/ft_string/ft_isdigit.c\
-./src/ft_string/ft_atol.c\
-./src/ft_string/ft_strlcpy.c\
-./src/ft_string/ft_strlen.c\
-./src/ft_string/ft_strnlen.c\
-./src/ft_string/ft_strchr.c\
-./src/ft_string/ft_strjoin.c\
-./src/ft_string/ft_isascii.c\
-./src/ft_string/ft_isprint.c\
-./src/ft_string/ft_toupper.c\
-./src/ft_string/ft_split.c\
-./src/ft_string/ft_strrchr.c\
-./src/ft_string/ft_isalpha.c\
-./src/ft_string/ft_atoll.c\
-./src/ft_string/ft_substr.c\
-./src/ft_string/ft_strncmp.c\
-./src/ft_string/ft_strcpy.c\
-./src/ft_string/ft_strmapi.c\
-./src/ft_string/ft_strtrim.c\
-./src/ft_string/ft_islower.c\
-./src/ft_string/ft_isupper.c\
-./src/ft_string/ft_strlcat.c\
-./src/ft_string/ft_trim_end.c\
-./src/ft_string/ft_count_occ.c\
-./src/ft_string/ft_strdup.c\
-./src/ft_string/ft_atoi.c\
-./src/ft_string/ft_trim_begin.c\
-./src/ft_string/ft_isalnum.c\
-./src/ft_string/ft_itoa.c\
-./src/ft_string/ft_isspace.c\
-./src/ft_string/ft_tolower.c\
-./src/ft_string/ft_is_char_in.c\
-./src/ft_io/ft_putstr_fd.c\
-./src/ft_io/ft_putnbr.c\
-./src/ft_io/ft_putnbr_fd.c\
-./src/ft_io/ft_putendl.c\
-./src/ft_io/ft_putendl_fd.c\
-./src/ft_io/ft_putchar.c\
-./src/ft_io/ft_read.c\
-./src/ft_io/ft_putchar_fd.c\
-./src/ft_io/ft_read_fd.c\
-./src/ft_io/ft_putstr.c\
-./src/ft_memory/ft_memcmp.c\
-./src/ft_memory/ft_bzero.c\
-./src/ft_memory/ft_memcpy.c\
-./src/ft_memory/ft_memccpy.c\
-./src/ft_memory/ft_realloc.c\
-./src/ft_memory/ft_freea.c\
-./src/ft_memory/ft_memchr.c\
-./src/ft_memory/ft_memset.c\
-./src/ft_memory/ft_memmove.c\
-./src/ft_memory/ft_calloc.c\
-./src/ft_memory/ft_numlen.c\
-./src/ft_memory/ft_bytes_digits.c
-BONUSSRC		:=./src_bonus/ft_list/ft_lstadd_back.c\
-./src_bonus/ft_list/ft_lstnew.c\
-./src_bonus/ft_list/ft_lstlast.c\
-./src_bonus/ft_list/ft_lstclear.c\
-./src_bonus/ft_list/ft_lstiter.c\
-./src_bonus/ft_list/ft_lstmap.c\
-./src_bonus/ft_list/ft_lstsize.c\
-./src_bonus/ft_list/ft_lstadd_front.c\
-./src_bonus/ft_list/ft_lstdelone.c
-
+CSRC			:=./ft_strnstr.c\
+./ft_isdigit.c\
+./ft_atol.c\
+./ft_strlcpy.c\
+./ft_strlen.c\
+./ft_strnlen.c\
+./ft_strchr.c\
+./ft_strjoin.c\
+./ft_isascii.c\
+./ft_isprint.c\
+./ft_toupper.c\
+./ft_split.c\
+./ft_strrchr.c\
+./ft_isalpha.c\
+./ft_atoll.c\
+./ft_substr.c\
+./ft_strncmp.c\
+./ft_strcpy.c\
+./ft_strmapi.c\
+./ft_strtrim.c\
+./ft_islower.c\
+./ft_isupper.c\
+./ft_strlcat.c\
+./ft_trim_end.c\
+./ft_count_occ.c\
+./ft_strdup.c\
+./ft_atoi.c\
+./ft_trim_begin.c\
+./ft_isalnum.c\
+./ft_itoa.c\
+./ft_isspace.c\
+./ft_tolower.c\
+./ft_is_char_in.c\
+./ft_putstr_fd.c\
+./ft_putnbr.c\
+./ft_putnbr_fd.c\
+./ft_putendl.c\
+./ft_putendl_fd.c\
+./ft_putchar.c\
+./ft_read.c\
+./ft_putchar_fd.c\
+./ft_read_fd.c\
+./ft_putstr.c\
+./ft_memcmp.c\
+./ft_bzero.c\
+./ft_memcpy.c\
+./ft_memccpy.c\
+./ft_realloc.c\
+./ft_freea.c\
+./ft_memchr.c\
+./ft_memset.c\
+./ft_memmove.c\
+./ft_calloc.c\
+./ft_numlen.c\
+./ft_bytes_digits.c
+BONUSSRC		:=./ft_lstadd_back.c\
+./ft_lstnew.c\
+./ft_lstlast.c\
+./ft_lstclear.c\
+./ft_lstiter.c\
+./ft_lstmap.c\
+./ft_lstsize.c\
+./ft_lstadd_front.c\
+./ft_lstdelone.c
 NAME		:= libft.a
 DEBUG		:= 0
-BONUSDIR	:= src_bonus
-
-SRCDIR		?= src
-BINDIR      ?= bin
-NAME        ?= a.out
-DEBUG       ?= 1
-RM          ?= /bin/rm -f
+BONUSDIR	:= ./
+RM			:= rm -rf
+SRCDIR		?= ./
+BINDIR		?= bin/
+NAME		?= a.out
+DEBUG		?= 1
+RM			?= /bin/rm -f
 AR			?= ar
 ARFLAGS		?= -rcs
-CC          ?= gcc
-CFLAGS      ?= -MMD -Werror -Wextra -Wall
-INCDIR      ?= inc/
-CSRC        ?=
-COBJ        ?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
-BONUSOBJ    ?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
-CDF         ?= $(patsubst %.o,%.d,$(COBJ))
+CC			?= gcc
+CFLAGS		?= -MMD -Werror -Wextra -Wall
+INCDIR		?= inc/
+CSRC		?=
+COBJ		?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
+BONUSOBJ	?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
+CDF			?= $(patsubst %.o,%.d,$(COBJ))
 BONUSDF		?= $(patsubst %.o,%.d,$(BONUSOBJ))
 DEBUG		?= 0
 DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
-INCDIR      := $(addprefix -I,$(INCDIR))
-CFLAGS      := $(CFLAGS) $(INCDIR)
+INCDIR		:= $(addprefix -I,$(INCDIR))
+CFLAGS		:= $(CFLAGS) $(INCDIR)
 ifeq ($(DEBUG),1)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
 
-all:                        $(NAME)
+all:						mkbin $(NAME)
+mkbin:
+		mkdir -p $(BINDIR)
 clean:
-		$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) tags
+		$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) $(BINDIR) tags
 fclean:
 		$(RM) $(NAME)
 re:
 		fclean all
 norme:
 		norminette
-bonus:						$(COBJ) $(BONUSOBJ)
+bonus:						mkbin $(COBJ) $(BONUSOBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ) $(BONUSOBJ)
-$(BINDIR)/%.o:				$(BONUSDIR)/%.c
+$(BINDIR)%.o:				$(BONUSDIR)%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(BINDIR)/%.o:				$(SRCDIR)/%.c
+$(BINDIR)%.o:				$(SRCDIR)%.c
 		$(CC) $(CFLAGS)			-c		$< -o					$@
 $(NAME):					$(COBJ)
 		$(AR) $(ARFLAGS) $(NAME) $(COBJ)
