@@ -69,9 +69,7 @@ BONUSDIR	:= src_bonus
 
 SRCDIR		?= src
 BINDIR      ?= bin
-TESTDIR     ?= test
 NAME        ?= a.out
-TEST        ?= test
 DEBUG       ?= 1
 RM          ?= /bin/rm -f
 AR			?= ar
