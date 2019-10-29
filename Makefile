@@ -62,49 +62,33 @@ BONUSSRC		:=./ft_lstadd_back.c\
 ./ft_lstdelone.c
 NAME		:= libft.a
 DEBUG		:= 0
-BONUSDIR	:= ./
 RM			:= rm -rf
-SRCDIR		?= ./
-BINDIR		?= bin/
-NAME		?= a.out
-DEBUG		?= 1
-RM			?= /bin/rm -f
-AR			?= ar
-ARFLAGS		?= -rcs
-CC			?= gcc
-CFLAGS		?= -MMD -Werror -Wextra -Wall
-INCDIR		?= inc/
-CSRC		?=
-COBJ		?= $(patsubst %.c,%.o,$(subst $(SRCDIR),$(BINDIR),$(CSRC)))
-BONUSOBJ	?= $(patsubst %.c,%.o,$(subst $(BONUSDIR),$(BINDIR),$(BONUSSRC)))
-CDF			?= $(patsubst %.o,%.d,$(COBJ))
-BONUSDF		?= $(patsubst %.o,%.d,$(BONUSOBJ))
-DEBUG		?= 0
-DEBUGFLAGS	?= -g -fsanitize=address -fno-omit-frame-pointer
-INCDIR		:= $(addprefix -I,$(INCDIR))
-CFLAGS		:= $(CFLAGS) $(INCDIR)
+AR			:= ar rcs
+CC			:= gcc
+CFLAGS		:= -MMD -Werror -Wextra -Wall
+COBJ		:= $(patsubst %.c,%.o,$(CSRC))
+BONUSOBJ	:= $(patsubst %.c,%.o,$(BONUSSRC))
+CDF			:= $(patsubst %.c,%.d,$(CSRC))
+BONUSDF		:= $(patsubst %.c,%.d,$(BONUSSRC))
+DEBUGFLAGS	:= -g -fsanitize=address -fno-omit-frame-pointer
+CFLAGS		:= $(CFLAGS) -I./
 ifeq ($(DEBUG),1)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
 
-all:						$(NAME)
-mkbin:
-		mkdir -p $(BINDIR)
+all:		$(NAME)
 clean:
-		$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) $(BINDIR) tags
-fclean:						clean
-		$(RM) $(NAME)
-re:
-		fclean all
+	$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) $(BINDIR)
+fclean:		clean
+	$(RM) $(NAME)
+re:		fclean all
 norme:
-		norminette
-bonus:						mkbin $(COBJ) $(BONUSOBJ)
-		$(AR) $(ARFLAGS) $(NAME) $(COBJ) $(BONUSOBJ)
-$(BINDIR)%.o:				$(BONUSDIR)%.c
-		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(BINDIR)%.o:				$(SRCDIR)%.c
-		$(CC) $(CFLAGS)			-c		$< -o					$@
-$(NAME):				mkbin	$(COBJ)
-		$(AR) $(ARFLAGS) $(NAME) $(COBJ)
+	norminette
+bonus:		$(COBJ) $(BONUSOBJ)
+	$(AR) $@ $^
+%.o:%.c
+	$(CC) $(CFLAGS)			-c		$< -o					$@
+$(NAME):	$(COBJ)
+	$(AR) $@ $^
 .PHONY:
 		all fclean clean re bonus
