@@ -77,7 +77,7 @@ endif
 
 all:		$(NAME)
 clean:
-	$(RM) $(COBJ) $(BONUSOBJ) $(BINDIR)
+	$(RM) $(COBJ) $(BONUSOBJ)
 fclean:		clean
 	$(RM) $(NAME)
 re:		fclean all

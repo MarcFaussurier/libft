@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:36:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 02:55:39 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 04:28:55 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ char		**ft_split(char const *s, char d)
 	if (!(ret = (char **)malloc(sizeof(char *) * (ft_count_occ(s, d) + 1))))
 		return (NULL);
 	index = -1;
-	while (((++index) || 1) && s[i])
+	while (++index || s[i])
 	{
 		while ((c = 0) || (s[i] == d && s[i]))
 			i++;
