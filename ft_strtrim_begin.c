@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putnbr.c                                      .::    .:/ .      .::   */
+/*   ft_trim_begin.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 16:26:13 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 02:55:03 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:34:30 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 02:56:54 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char				*ft_strtrim_begin(char const *s1, char const *set)
 {
-	ft_putnbr_fd(n, STDIN_FILENO);
+	unsigned int	i;
+
+	i = -1;
+	while (s1[++i] && ft_is_char_in(s1[i], set))
+		;
+	return ((char*)&s1[i]);
 }

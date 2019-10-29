@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_trim_begin.c                                  .::    .:/ .      .::   */
+/*   ft_lstmap.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:34:30 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:32:50 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:24:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 03:53:01 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
-char				*ft_strtrim_begin(char const *s1, char const *set)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
+	t_list		*bckp;
+	t_list		*out;
+	t_list		*it;
 
-	i = -1;
-	while (s1[++i] && ft_is_char_in(s1[i], set))
-		;
-	return ((char*)&s1[i]);
+	if (!lst)
+		return (lst);
+	if (!(out = ft_lstnew(f(lst->content))))
+		return (NULL);
+	it = lst;
+	bckp = out;
+	while (1)
+	{
+		if (!(out->next = ft_lstnew(f(it->content))))
+		{
+			ft_lstclear(&bckp, del);
+			return (NULL);
+		}
+		it = it->next;
+		out = out->next;
+		if (!it || !out)
+			break ;
+	}
+	return (bckp);
 }

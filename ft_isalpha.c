@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:10:50 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:58 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:52:41 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 int			ft_isalpha(int c)
 {

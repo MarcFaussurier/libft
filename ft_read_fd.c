@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:20:07 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:30:36 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:55:28 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 char				*ft_read_fd(char delimiter, int fd)
 {

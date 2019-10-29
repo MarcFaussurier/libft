@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:30:18 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:59 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:54:47 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 void		ft_putchar_fd(char c, int fd)
 {

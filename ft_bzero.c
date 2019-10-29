@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:27:14 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:27 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:52:11 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 void		ft_bzero(void *s, size_t n)
 {

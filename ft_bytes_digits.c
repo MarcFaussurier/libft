@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:27:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:22 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:52:07 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 unsigned int		ft_bytes_digits(size_t bytes)
 {

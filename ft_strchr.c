@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:03:15 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:30:51 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:55:46 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 char			*ft_strchr(const char *s, int c)
 {

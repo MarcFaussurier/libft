@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:13:43 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:30:40 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:55:33 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 void		*ft_realloc(void *ptr, size_t size)
 {

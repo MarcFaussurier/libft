@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:14:47 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:39 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:54:26 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 void				*ft_memmove(void *dst, const void *src, size_t n)
 {

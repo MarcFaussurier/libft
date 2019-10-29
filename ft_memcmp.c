@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:17:55 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:29 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:54:16 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {

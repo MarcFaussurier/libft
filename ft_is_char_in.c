@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:08:20 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:49 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:52:32 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 t_bool				ft_is_char_in(char c, char const *str)
 {

@@ -19,11 +19,11 @@ CSRC			:=./ft_strnstr.c\
 ./ft_islower.c\
 ./ft_isupper.c\
 ./ft_strlcat.c\
-./ft_trim_end.c\
+./ft_strtrim_end.c\
 ./ft_count_occ.c\
 ./ft_strdup.c\
 ./ft_atoi.c\
-./ft_trim_begin.c\
+./ft_strtrim_begin.c\
 ./ft_isalnum.c\
 ./ft_itoa.c\
 ./ft_isspace.c\
@@ -44,51 +44,50 @@ CSRC			:=./ft_strnstr.c\
 ./ft_memcpy.c\
 ./ft_memccpy.c\
 ./ft_realloc.c\
-./ft_freea.c\
+./ft_free_until.c\
 ./ft_memchr.c\
 ./ft_memset.c\
 ./ft_memmove.c\
 ./ft_calloc.c\
 ./ft_numlen.c\
 ./ft_bytes_digits.c
-BONUSSRC		:=./ft_lstadd_back.c\
-./ft_lstnew.c\
-./ft_lstlast.c\
-./ft_lstclear.c\
-./ft_lstiter.c\
-./ft_lstmap.c\
-./ft_lstsize.c\
-./ft_lstadd_front.c\
-./ft_lstdelone.c
+BONUSSRC		:=./ft_lstadd_back_bonus.c\
+./ft_lstnew_bonus.c\
+./ft_lstlast_bonus.c\
+./ft_lstclear_bonus.c\
+./ft_lstiter_bonus.c\
+./ft_lstmap_bonus.c\
+./ft_lstsize_bonus.c\
+./ft_lstadd_front_bonus.c\
+./ft_lstdelone_bonus.c
 NAME		:= libft.a
 DEBUG		:= 0
 RM			:= rm -rf
 AR			:= ar rcs
 CC			:= gcc
-CFLAGS		:= -M -Werror -Wextra -Wall
+CFLAGS		:= -Werror -Wextra -Wall
 COBJ		:= $(patsubst %.c,%.o,$(CSRC))
 BONUSOBJ	:= $(patsubst %.c,%.o,$(BONUSSRC))
-CDF			:= $(patsubst %.c,%.d,$(CSRC))
-BONUSDF		:= $(patsubst %.c,%.d,$(BONUSSRC))
 DEBUGFLAGS	:= -g -fsanitize=address -fno-omit-frame-pointer
-CFLAGS		:= $(CFLAGS) -I./
+INC			:= ./
+CFLAGS		:= $(CFLAGS) -I$(INC)
 ifeq ($(DEBUG),1)
 CFLAGS		+= $(DEBUGFLAGS)
 endif
 
 all:		$(NAME)
 clean:
-	$(RM) $(COBJ) $(CDF) $(BONUSOBJ) $(BONUSDF) $(BINDIR)
+	$(RM) $(COBJ) $(BONUSOBJ) $(BINDIR)
 fclean:		clean
 	$(RM) $(NAME)
 re:		fclean all
 norme:
 	norminette
-bonus:		$(COBJ) $(BONUSOBJ) ft_list.h ft.h
-	$(AR) $@ $^
-%.o:%.c
-	$(CC) $(CFLAGS)			-c		$< -o					$@
-$(NAME):	$(COBJ) ft.h
-	$(AR) $@ $^
+bonus:		$(COBJ) $(BONUSOBJ)
+	$(AR) $(NAME) $(COBJ) $(BONUSOBJ)
+%.o:	%.c		libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	$(COBJ)
+	$(AR) $(NAME) $(COBJ)
 .PHONY:
 		all fclean clean re bonus

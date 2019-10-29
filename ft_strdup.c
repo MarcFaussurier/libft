@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:04:38 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:31:03 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:55:55 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 char		*ft_strdup(const char *src)
 {

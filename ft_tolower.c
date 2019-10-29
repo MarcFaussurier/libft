@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:35:39 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:32:35 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:57:11 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 int			ft_tolower(int c)
 {

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_freea.c                                       .::    .:/ .      .::   */
+/*   ft_lstiter.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 16:24:58 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:41 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:28:59 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 03:52:51 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
-void			ft_free_until(void **array, void *end)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	void		*tmp;
-
-	tmp = array;
-	while (*array != end)
+	if (!lst)
+		return ;
+	while (1)
 	{
-		free(*array);
-		array += 1;
+		f(lst->content);
+		if (!lst->next)
+			break ;
+		lst = lst->next;
 	}
-	free(tmp);
 }

@@ -6,13 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:54:03 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:28:18 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:53:09 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
-#include <stdio.h>
+#include "libft.h"
 
 char				*ft_itoa(int n)
 {

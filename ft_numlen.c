@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:14:08 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:50 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:54:36 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 unsigned short			ft_numlen(int n)
 {

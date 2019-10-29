@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:07:24 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:27:07 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:52:00 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 int				ft_atoi(const char *str)
 {

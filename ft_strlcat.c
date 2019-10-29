@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:50:14 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:31:19 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:56:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 size_t			ft_strlcat(char *dst, const	char *src, size_t dstsize)
 {

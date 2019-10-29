@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:21:54 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:20 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:54:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {

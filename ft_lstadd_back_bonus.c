@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstclear.c                                    .::    .:/ .      .::   */
+/*   ft_lstadd_back.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:28:14 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:28:41 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:30:16 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 03:52:31 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
-#include "ft_list.h"
+#include "libft.h"
 
-void		ft_lstclear(t_list **lst, void (*del)(void*))
+void		ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	**s;
+	t_list	*list;
 
-	s = lst;
-	if (!*lst)
+	if (!new)
 		return ;
-	while (1)
+	else if (!*alst)
+		*alst = new;
+	else
 	{
-		ft_lstdelone(*lst, del);
-		if (!(*lst = (*lst)->next))
-			break ;
+		list = ft_lstlast(*alst);
+		list->next = new;
 	}
-	free(*s);
-	*lst = NULL;
 }

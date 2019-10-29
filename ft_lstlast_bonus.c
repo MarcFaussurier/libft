@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstmap.c                                      .::    .:/ .      .::   */
+/*   ft_lstlast.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:24:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:29:05 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:27:10 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 03:52:56 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
-#include "ft_list.h"
+#include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list		*ft_lstlast(t_list *lst)
 {
-	t_list		*bckp;
-	t_list		*out;
-	t_list		*it;
+	t_list	*tmp;
 
 	if (!lst)
 		return (lst);
-	if (!(out = ft_lstnew(f(lst->content))))
-		return (NULL);
-	it = lst;
-	bckp = out;
-	while (1)
+	tmp = lst;
+	while (tmp->next)
 	{
-		if (!(out->next = ft_lstnew(f(it->content))))
-		{
-			ft_lstclear(&bckp, del);
-			return (NULL);
-		}
-		it = it->next;
-		out = out->next;
-		if (!it || !out)
-			break ;
+		tmp = tmp->next;
 	}
-	return (bckp);
+	return (tmp);
 }

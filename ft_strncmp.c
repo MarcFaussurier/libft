@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:49:19 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:31:47 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:56:28 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 int				ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,12 +6,12 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:52:11 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/28 18:31:40 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 02:56:21 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
