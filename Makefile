@@ -65,7 +65,7 @@ DEBUG		:= 0
 RM			:= rm -rf
 AR			:= ar rcs
 CC			:= gcc
-CFLAGS		:= -MMD -Werror -Wextra -Wall
+CFLAGS		:= -M -Werror -Wextra -Wall
 COBJ		:= $(patsubst %.c,%.o,$(CSRC))
 BONUSOBJ	:= $(patsubst %.c,%.o,$(BONUSSRC))
 CDF			:= $(patsubst %.c,%.d,$(CSRC))
@@ -84,11 +84,11 @@ fclean:		clean
 re:		fclean all
 norme:
 	norminette
-bonus:		$(COBJ) $(BONUSOBJ)
+bonus:		$(COBJ) $(BONUSOBJ) ft_list.h ft.h
 	$(AR) $@ $^
 %.o:%.c
 	$(CC) $(CFLAGS)			-c		$< -o					$@
-$(NAME):	$(COBJ)
+$(NAME):	$(COBJ) ft.h
 	$(AR) $@ $^
 .PHONY:
 		all fclean clean re bonus
