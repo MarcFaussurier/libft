@@ -6,38 +6,76 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:36:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 04:28:55 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/06 21:53:33 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_split(char const *s, char d)
+static t_bool	init(const char *s, char d, t_split_state *state)
 {
-	int		i;
-	int		j;
-	int		c;
-	char	**ret;
-	int		index;
+	state->s_len = ft_strlen(s);
+	state->tmp = (char*)malloc((state->s_len + 1) * sizeof(char));
+	if (!state->tmp)
+		return (FALSE);
+	state->out = (char**)malloc(((ft_count_occ(s, d)) + 2) * sizeof(char*));
+	if (!state->out)
+		return (FALSE);
+	state->out[0] = NULL;
+	state->tmp[0] = '\0';
+	state->i = -1;
+	state->y = -1;
+	state->nb_words = 0;
+	while (s[++state->i] == d)
+		;
+	state->i -= 1;
+	return (TRUE);
+}
 
-	if ((i = 0) || !s)
-		return (NULL);
-	if (!(ret = (char **)malloc(sizeof(char *) * (ft_count_occ(s, d) + 1))))
-		return (NULL);
-	index = -1;
-	while (++index || s[i])
+static t_bool	flush(t_split_state *state)
+{
+	state->tmp[state->y + 1] = '\0';
+	state->y = -1;
+	state->out[state->nb_words] = ft_strdup(state->tmp);
+	if (!state->out[state->nb_words])
 	{
-		while ((c = 0) || (s[i] == d && s[i]))
-			i++;
-		while (s[i] != d && s[i + c])
-			c++;
-		if ((j = 0) || (c == 0))
-			break ;
-		ret[index] = (char*)(malloc(sizeof(char) * (c + 1)));
-		while (s[i] != d && s[i])
-			ret[index][j++] = s[i++];
-		ret[index][j] = '\0';
+		if (state->nb_words > 0)
+			ft_free_until((void**)state->out, state->out + state->nb_words - 1);
+		return (FALSE);
 	}
-	return ((ret[index] = NULL) ? ret : ret);
+	free(state->tmp);
+	state->tmp = (char*)malloc((state->s_len + 1) * sizeof(char));
+	if (!state->tmp)
+	{
+		ft_free_until((void**)state->out, state->out + state->nb_words);
+		return (FALSE);
+	}
+	state->tmp[0] = '\0';
+	state->nb_words += 1;
+	state->out[state->nb_words] = NULL;
+	return (TRUE);
+}
+
+char			**ft_split(char const *s, char d)
+{
+	t_split_state state;
+
+	if (!init(s, d, &state))
+		return (NULL);
+	while (s[++state.i])
+		if (s[state.i] == d)
+		{
+			while (s[++state.i] == d)
+				;
+			state.i -= 1;
+			if (!flush(&state))
+				return (NULL);
+		}
+		else
+			state.tmp[++state.y] = s[state.i];
+	if (ft_strlen(state.tmp) > 0)
+		if (!flush(&state))
+			return (NULL);
+	return (state.out);
 }

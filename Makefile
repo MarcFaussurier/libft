@@ -66,8 +66,8 @@ RM			:= rm -rf
 AR			:= ar rcs
 CC			:= gcc
 CFLAGS		:= -Werror -Wextra -Wall
-COBJ		:= $(patsubst %.c,%.o,$(CSRC))
-BONUSOBJ	:= $(patsubst %.c,%.o,$(BONUSSRC))
+COBJ		:= $(CSRC:.c=.o)
+BONUSOBJ	:= $(BONUSSRC:.c=.o)
 DEBUGFLAGS	:= -g -fsanitize=address -fno-omit-frame-pointer
 INC			:= ./
 CFLAGS		:= $(CFLAGS) -I$(INC)

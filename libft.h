@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/15 17:08:47 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:56:42 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/06 21:13:47 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,10 +83,10 @@ void					ft_putnbr_fd(int n, int fd);
 void					ft_putnbr(int n);
 char					*ft_read_fd(char del, int fd);
 char					*ft_read(char del);
-typedef struct          s_list
+typedef struct			s_list
 {
-        void			*content;
-        struct s_list	*next;
+	void				*content;
+	struct s_list		*next;
 }						t_list;
 t_list					*ft_lstnew(void *content);
 void					ft_lstadd_front(t_list **alst, t_list *new_itm);
@@ -98,4 +98,13 @@ void					ft_lstclear(t_list **lst, void (*del)(void *));
 void					ft_lstiter(t_list *lst, void (*f)(void *));
 t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
 		void (*del)(void *));
+typedef struct			s_split_state
+{
+	char				**out;
+	char				*tmp;
+	unsigned int		i;
+	unsigned int		y;
+	unsigned int		nb_words;
+	unsigned int		s_len;
+}						t_split_state;
 #endif
