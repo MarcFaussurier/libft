@@ -22,7 +22,7 @@ void			ft_free_until(void **array, void *end)
 	{
 		free(*array);
 		if (*array != end)
-			break;
+			break ;
 		array += 1;
 	}
 	free(tmp);
