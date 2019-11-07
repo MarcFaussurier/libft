@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:36:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 21:53:33 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/07 18:29:24 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -61,7 +61,7 @@ char			**ft_split(char const *s, char d)
 {
 	t_split_state state;
 
-	if (!init(s, d, &state))
+	if (!s || !init(s, d, &state))
 		return (NULL);
 	while (s[++state.i])
 		if (s[state.i] == d)
