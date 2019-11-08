@@ -19,9 +19,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list		*out;
 	t_list		*it;
 
-	if (!lst)
-		return (lst);
-	if (!(out = ft_lstnew(f(lst->content))))
+	if (!lst || !(out = ft_lstnew(f(lst->content))))
 		return (NULL);
 	it = lst;
 	bckp = out;
@@ -33,9 +31,9 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		it = it->next;
-		out = out->next;
-		if (!it || !out)
+		if (!it)
 			break ;
+		out = out->next;
 	}
 	return (bckp);
 }
