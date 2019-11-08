@@ -19,7 +19,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list		*out;
 	t_list		*it;
 
-	if (!lst || !(out = ft_lstnew(f(lst->content))))
+	if (!lst || !f || !(out = ft_lstnew(f(lst->content))))
 		return (NULL);
 	it = lst;
 	bckp = out;

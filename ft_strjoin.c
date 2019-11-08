@@ -16,17 +16,15 @@
 char				*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*out;
-	unsigned int	final;
-	unsigned int	s2len1;
+	unsigned int	dstsize;
 
 	if (!s1 || !s2)
 		return (NULL);
-	s2len1 = ft_strlen(s2) + 1;
-	final = ft_strlen(s1) + s2len1;
-	out = malloc(final * sizeof(char));
+	dstsize = ft_strlen(s1) + ft_strlen(s2) + 1;
+	out = malloc(dstsize * sizeof(char));
 	if (!out)
 		return (NULL);
 	ft_strcpy(out, s1);
-	ft_strlcat(out, s2, s2len1);
+	ft_strlcat(out, s2, dstsize);
 	return (out);
 }
