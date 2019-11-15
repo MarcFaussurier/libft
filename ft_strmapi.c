@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:52:11 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/07 18:52:13 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/15 17:57:00 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,9 +19,7 @@ char				*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	char			*out;
 
 	if (!s || !f)
-    {
-        return(ft_strdup(""));
-    }
+		return (ft_strdup(""));
 	out = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!out)
 		return (NULL);

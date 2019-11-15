@@ -65,7 +65,7 @@ DEBUG		:= 0
 RM			:= rm -rf
 AR			:= ar rcs
 CC			:= gcc
-CFLAGS		:= -Werror -Wextra -Wall
+CFLAGS		:= -Werror -Wextra -Wall -Wparentheses
 COBJ		:= $(CSRC:.c=.o)
 BONUSOBJ	:= $(BONUSSRC:.c=.o)
 DEBUGFLAGS	:= -g -fsanitize=address -fno-omit-frame-pointer

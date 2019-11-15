@@ -6,32 +6,32 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:36:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/07 18:29:24 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/15 17:55:41 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char     **protect_string(t_split_state *state)
+static char		**protect_string(t_split_state *state)
 {
-    state->out = malloc(1 * sizeof(char*));
-    if (!state->out)
-        return (NULL);
-    state->out[0] = NULL;
-    return (state->out);
+	state->out = malloc(1 * sizeof(char*));
+	if (!state->out)
+		return (NULL);
+	state->out[0] = NULL;
+	return (state->out);
 }
 
-static char     **protect_delimiter(t_split_state *state, char const *s)
+static char		**protect_delimiter(t_split_state *state, char const *s)
 {
-    state->out = malloc(2 * sizeof(char*));
-    if (!state->out)
-        return (NULL);
-    state->out[0] = ft_strdup(s);
-    if (!state->out[0])
-        return (NULL);
-    state->out[1] = NULL;
-    return (state->out);
+	state->out = malloc(2 * sizeof(char*));
+	if (!state->out)
+		return (NULL);
+	state->out[0] = ft_strdup(s);
+	if (!state->out[0])
+		return (NULL);
+	state->out[1] = NULL;
+	return (state->out);
 }
 
 static t_bool	init(const char *s, char d, t_split_state *state)
@@ -82,11 +82,11 @@ char			**ft_split(char const *s, char d)
 {
 	t_split_state state;
 
-    if (!s)
-        return (protect_string(&state));
-    if (!d)
-        return (protect_delimiter(&state, s));
-    if (!init(s, d, &state))
+	if (!s)
+		return (protect_string(&state));
+	if (!d)
+		return (protect_delimiter(&state, s));
+	if (!init(s, d, &state))
 		return (NULL);
 	while (s[++state.i])
 		if (s[state.i] == d)
