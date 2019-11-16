@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:28:14 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 17:57:26 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:10:19 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,18 +15,16 @@
 
 void		ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	**s;
+	t_list		*tmp;
 
-	s = lst;
-	if (!s || !*s)
+	if (!lst)
 		return ;
 	if (del)
-		while (1)
+		while (*lst)
 		{
+			tmp = (*lst)->next;
 			ft_lstdelone(*lst, del);
-			if (!(*lst = (*lst)->next))
-				break ;
+			*lst = tmp;
 		}
-	free(*s);
 	*lst = NULL;
 }

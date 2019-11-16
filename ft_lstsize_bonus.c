@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:25:06 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:53:08 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:25:09 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,12 +20,10 @@ int			ft_lstsize(t_list *lst)
 	if (!lst)
 		return (0);
 	i = 0;
-	while (1)
+	while (lst)
 	{
 		i += 1;
 		lst = lst->next;
-		if (!lst)
-			break ;
 	}
 	return (i);
 }

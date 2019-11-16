@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:14:08 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 02:54:36 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 17:58:30 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,14 +18,14 @@ unsigned short			ft_numlen(int n)
 	size_t				out;
 
 	out = 0;
-	if (n < 0 && (n *= -1))
+	if (n == -2147483648)
+		return (ft_strlen("-2147483648"));
+	if (n < 0 && (n = -n))
 		out += 1;
-	while (TRUE)
+	while (n)
 	{
 		out += 1;
 		n /= 10;
-		if (n == 0)
-			break ;
 	}
 	return (out);
 }

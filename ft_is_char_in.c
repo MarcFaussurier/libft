@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:08:20 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 02:52:32 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:31:39 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,9 +17,12 @@ t_bool				ft_is_char_in(char c, char const *str)
 {
 	unsigned int	i;
 
-	i = -1;
-	while (str[++i])
-		if (str[i] == c)
-			return (TRUE);
+	if (str)
+	{
+		i = -1;
+		while (str[++i])
+			if (str[i] == c)
+				return (TRUE);
+	}
 	return (FALSE);
 }

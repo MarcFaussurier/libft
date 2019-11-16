@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:24:58 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 22:28:59 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:23:36 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,15 +15,13 @@
 
 void			ft_free_until(void **array, void *end)
 {
-	void		*tmp;
+	void		**tmp;
 
 	tmp = array;
-	while (TRUE)
+	while (*array <= end)
 	{
 		free(*array);
-		if (*array != end)
-			break ;
-		array += 1;
+		array += 1 * sizeof(void*);
 	}
-	free(tmp);
+	*array = NULL;
 }

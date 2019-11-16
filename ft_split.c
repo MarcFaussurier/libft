@@ -5,102 +5,65 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:36:40 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 17:55:41 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/16 17:25:58 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/16 18:38:26 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static char		**protect_string(t_split_state *state)
+static char			**ft_malloc_split(char const *s, char d)
 {
-	state->out = malloc(1 * sizeof(char*));
-	if (!state->out)
-		return (NULL);
-	state->out[0] = NULL;
-	return (state->out);
-}
+	unsigned int	word_count;
+	unsigned int	i;
+	unsigned int	y;
 
-static char		**protect_delimiter(t_split_state *state, char const *s)
-{
-	state->out = malloc(2 * sizeof(char*));
-	if (!state->out)
-		return (NULL);
-	state->out[0] = ft_strdup(s);
-	if (!state->out[0])
-		return (NULL);
-	state->out[1] = NULL;
-	return (state->out);
-}
-
-static t_bool	init(const char *s, char d, t_split_state *state)
-{
-	state->s_len = ft_strlen(s);
-	state->tmp = (char*)malloc((state->s_len + 1) * sizeof(char));
-	if (!state->tmp)
-		return (FALSE);
-	state->out = (char**)malloc(((ft_count_occ(s, d)) + 2) * sizeof(char*));
-	if (!state->out)
-		return (FALSE);
-	state->out[0] = NULL;
-	state->tmp[0] = '\0';
-	state->i = -1;
-	state->y = -1;
-	state->nb_words = 0;
-	while (s[++state->i] == d)
-		;
-	state->i -= 1;
-	return (TRUE);
-}
-
-static t_bool	flush(t_split_state *state)
-{
-	state->tmp[state->y + 1] = '\0';
-	state->y = -1;
-	state->out[state->nb_words] = ft_strdup(state->tmp);
-	if (!state->out[state->nb_words])
+	word_count = 0;
+	i = 0;
+	while (s[i])
 	{
-		if (state->nb_words > 0)
-			ft_free_until((void**)state->out, state->out + state->nb_words - 1);
-		return (FALSE);
-	}
-	free(state->tmp);
-	state->tmp = (char*)malloc((state->s_len + 1) * sizeof(char));
-	if (!state->tmp)
-	{
-		ft_free_until((void**)state->out, state->out + state->nb_words);
-		return (FALSE);
-	}
-	state->tmp[0] = '\0';
-	state->nb_words += 1;
-	state->out[state->nb_words] = NULL;
-	return (TRUE);
-}
-
-char			**ft_split(char const *s, char d)
-{
-	t_split_state state;
-
-	if (!s)
-		return (protect_string(&state));
-	if (!d)
-		return (protect_delimiter(&state, s));
-	if (!init(s, d, &state))
-		return (NULL);
-	while (s[++state.i])
-		if (s[state.i] == d)
+		y = 0;
+		while (s[i + y] && s[i + y] != d)
+			y += 1;
+		if (y > 0)
 		{
-			while (s[++state.i] == d)
-				;
-			state.i -= 1;
-			if (!flush(&state))
-				return (NULL);
+			word_count += 1;
+			if (!s[i += y])
+				break ;
 		}
-		else
-			state.tmp[++state.y] = s[state.i];
-	if (ft_strlen(state.tmp) > 0)
-		if (!flush(&state))
-			return (NULL);
-	return (state.out);
+		i += 1;
+	}
+	word_count += 1;
+	return (malloc(word_count * sizeof(char*)));
+}
+
+char				**ft_split(char const *s, char d)
+{
+	char			**output;
+	unsigned int	word_count;
+	unsigned int	i;
+	unsigned int	y;
+
+	if (!s || !(output = ft_malloc_split(s, d)))
+		return (NULL);
+	i = 0;
+	word_count = 0;
+	while ((y = 0) || s[i])
+	{
+		while (s[i + y] && s[i + y] != d)
+			y += 1;
+		if (y > 0)
+		{
+			output[word_count] = ft_substr(s, i, y);
+			if (!output[word_count])
+				ft_free_until((void**)output, output + word_count);
+			word_count += 1;
+			if (!s[i += y])
+				break ;
+		}
+		i += 1;
+	}
+	return (output + (long)(output[word_count] = NULL));
 }

@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 16:27:59 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 02:55:12 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 17:47:38 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,5 @@
 
 void		ft_putstr(char *s)
 {
-	while (*s)
-	{
-		ft_putchar(*s);
-		s += 1;
-	}
+	ft_putstr_fd(s, STDIN_FILENO);
 }

@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:28:59 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/07 18:46:23 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:25:41 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,12 +15,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!f)
 		return ;
-	while (1)
+	while (lst)
 	{
 		f(lst->content);
-		if (!(lst = lst->next))
-			break ;
+		lst = lst->next;
 	}
 }

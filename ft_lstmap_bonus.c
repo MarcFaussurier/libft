@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:24:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:53:01 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:15:56 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,25 +15,16 @@
 
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list		*bckp;
-	t_list		*out;
-	t_list		*it;
+	t_list		**out;
 
-	if (!lst || !f || !(out = ft_lstnew(f(lst->content))))
+	if (!lst || !f)
 		return (NULL);
-	it = lst;
-	bckp = out;
-	while (1)
+	out = malloc(1 * sizeof(t_list*));
+	*out = NULL;
+	while (lst)
 	{
-		if (!(out->next = ft_lstnew(f(it->content))))
-		{
-			ft_lstclear(&bckp, del);
-			return (NULL);
-		}
-		it = it->next;
-		if (!it)
-			break ;
-		out = out->next;
+		ft_lstadd_back(out, f(lst->content));
+		lst = lst->next;
 	}
-	return (bckp);
+	return (*out);
 }

@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:54:03 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 20:33:24 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:06:06 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,20 +24,20 @@ char				*ft_itoa(int n)
 		return (ft_strdup("0"));
 	numlen = ft_numlen(n);
 	out = malloc(sizeof(char) * (numlen + 1));
-	if ((isn = 0) || !out)
+	isn = FALSE;
+	if (!out)
 		return (NULL);
 	if ((i = 0) || (n == -2147483648))
 		return (ft_strdup("-2147483648"));
 	if (n < 0 && (isn = TRUE))
 		out[i++] = '-';
-	while (n < 0 ? (n = -n) : TRUE)
-		if (n == 0)
-			break ;
-		else
-		{
-			out[numlen - i - !isn] = ('0' + n % 10);
-			n /= 10;
-			i += 1;
-		}
-	return ((out[i] = '\0') ? out : out);
+	if (n < 0)
+		n = -n;
+	while (n)
+	{
+		out[numlen - i - !isn] = ('0' + n % 10);
+		n /= 10;
+		i += 1;
+	}
+	return ((out[i] = '\0') ? "lol" : out);
 }
