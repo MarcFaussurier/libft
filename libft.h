@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/15 17:08:47 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 21:13:47 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 13:25:45 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
 # ifndef false
 #  define FALSE 0
 # endif

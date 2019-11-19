@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:53:07 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/17 14:05:21 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 14:25:26 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ char				*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	dstsize;
 
 	if (!s1 && !s2)
-		return (NULL);
+		return (ft_strdup(""));
 	else if (!s1)
 		return (ft_strdup(s2));
 	else if (!s2)

@@ -6,33 +6,22 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 13:02:33 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 13:14:08 by mfaussur    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_split.c                                       .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/16 17:25:58 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 13:02:02 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 14:42:31 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static char			**ft_malloc_split(char const *s, char d, unsigned int *ui, unsigned int *uwc)
+static char			**ft_malloc_split(char const *s, char d, unsigned int *ui,
+		unsigned int *uwc)
 {
 	unsigned int	word_count;
 	unsigned int	i;
 	unsigned int	y;
 
+	if (!s)
+		return (NULL);
 	word_count = 0;
 	i = 0;
 	while (s[i])
@@ -69,12 +58,12 @@ char				**ft_split(char const *s, char d)
 			y += 1;
 		if (y > 0)
 		{
-			output[++word_count] = ft_substr(s, i, y);
-			if (!output[word_count] && word_count > 0)
+			if (!(output[++word_count] = ft_substr(s, i, y)))
 			{
 				if (word_count > 0)
 					ft_free_until((void**)output, &output[word_count - 1]);
-				break;
+				free(output);
+				return (NULL);
 			}
 			if (!s[i += y])
 				break ;

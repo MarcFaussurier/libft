@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:27:10 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:52:56 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 14:43:02 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,14 +15,7 @@
 
 t_list		*ft_lstlast(t_list *lst)
 {
-	t_list	*tmp;
-
-	if (!lst)
-		return (lst);
-	tmp = lst;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-	}
-	return (tmp);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

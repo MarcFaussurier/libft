@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:31:38 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/17 14:06:24 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 14:25:31 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,9 +19,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	min_len;
 	char			*out;
 
-	if (!s)
-		return (NULL);
-	else if (len <= 0 || start >= ft_strlen(s))
+	if (!s || len <= 0 || start >= ft_strlen(s))
 		return (ft_strdup(""));
 	else
 	{
