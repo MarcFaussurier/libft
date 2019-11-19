@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strjoin.c                                     .::    .:/ .      .::   */
+/*   ft_lstmap.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:53:07 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/17 14:05:21 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/28 15:24:22 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/17 15:19:25 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_list.h"
 
-char				*ft_strjoin(char const *s1, char const *s2)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char			*out;
-	unsigned int	dstsize;
+	t_list		*bckp;
+	t_list		*out;
+	t_list		*it;
 
-	if (!s1 && !s2)
+	if (!lst)
+		return (lst);
+	if (!(out = ft_lstnew(f(lst->content))))
 		return (NULL);
-	else if (!s1)
-		return (ft_strdup(s2));
-	else if (!s2)
-		return (ft_strdup(s1));
-	else
+	it = lst;
+	bckp = out;
+	while (1)
 	{
-		dstsize = ft_strlen(s1) + ft_strlen(s2) + 1;
-		out = malloc(dstsize * sizeof(char));
-		if (!out)
+		if (!(out->next = ft_lstnew(f(it->content))))
+		{
+			ft_lstclear(&bckp, del);
 			return (NULL);
-		ft_strcpy(out, s1);
-		ft_strlcat(out, s2, dstsize);
-		return (out);
+		}
+		it = it->next;
+		out = out->next;
+		if (!it || !out)
+			break ;
 	}
+	return (bckp);
 }

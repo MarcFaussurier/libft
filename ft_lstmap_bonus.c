@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/28 15:24:22 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/16 18:15:56 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/17 15:23:56 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list		**out;
+	t_list		*new;
 
 	if (!lst || !f)
 		return (NULL);
@@ -23,7 +24,13 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	*out = NULL;
 	while (lst)
 	{
-		ft_lstadd_back(out, f(lst->content));
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			ft_lstclear(out, del);
+			return (NULL);
+		}
+		ft_lstadd_back(out, new);
 		lst = lst->next;
 	}
 	return (*out);
