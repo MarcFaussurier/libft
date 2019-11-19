@@ -61,7 +61,7 @@ BONUSSRC		:=./ft_lstadd_back_bonus.c\
 ./ft_lstadd_front_bonus.c\
 ./ft_lstdelone_bonus.c
 NAME		:= libft.a
-DEBUG		:= 1
+DEBUG		:= 0
 RM			:= rm -rf
 AR			:= ar rcs
 CC			:= gcc
