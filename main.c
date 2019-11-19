@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strtrim.c                                     .::    .:/ .      .::   */
+/*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/28 15:32:58 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 13:00:59 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/19 12:45:38 by mfaussur     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/19 12:47:58 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char		*ft_strtrim(char const *s1, char const *set)
+void	*ff(void *ptr)
 {
-	char				*start;
-	char				*stop;
+	return ((void*)ft_strtrim(ft_strdup((char*)ptr), "l"));
+}
 
-	if (!s1 || !s1[0])
-		return (ft_strdup(""));
-	else if (!set)
-		return (ft_strdup(s1));
-	else
+void	dd(void *ptr)
+{
+	free(ptr);
+}
+
+int main()
+{
+	t_list	*t = ft_lstnew((void*)"lol");
+	ft_lstadd_back(&t, ft_lstnew("lal"));
+
+	t_list *n = ft_lstmap(t, ff, dd);
+	while (n)
 	{
-		start = ft_strtrim_begin(s1, set);
-		stop = ft_strtrim_end(s1, set);
-		return (ft_substr(s1, start - s1, stop - start + 1));
+		ft_putendl((char*)n->content);
+		n = n->next;
 	}
 }
