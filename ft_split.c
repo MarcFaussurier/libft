@@ -6,7 +6,7 @@
 /*   By: mfaussur <mfaussur@student.le-101.>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 13:02:33 by mfaussur     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 13:09:41 by mfaussur    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 13:14:08 by mfaussur    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,13 +72,13 @@ char				**ft_split(char const *s, char d)
 			output[++word_count] = ft_substr(s, i, y);
 			if (!output[word_count] && word_count > 0)
 			{
-				ft_free_until((void**)output, &output[word_count - 1]);
+				if (word_count > 0)
+					ft_free_until((void**)output, &output[word_count - 1]);
 				break;
 			}
 			if (!s[i += y])
 				break ;
 		}
 	}
-	output[++word_count] = NULL;
-	return (output);
+	return (output + (long)(output[++word_count] = NULL));
 }
