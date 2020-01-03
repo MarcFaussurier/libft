@@ -23,5 +23,5 @@ void			ft_free_until(void **array, void *end)
 		free(*array);
 		array += 1 * sizeof(void*);
 	}
-	*array = NULL;
+	*tmp = NULL;
 }
